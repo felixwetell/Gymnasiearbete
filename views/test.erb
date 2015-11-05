@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<% @name.each do |name| %>
+    <h3><%= name.username %></h3>
+    <p><%= name.password %></p>
+    <h3><%= name.salt %></h3>
+<% end %>
+
+</body>
+</html>
