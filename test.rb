@@ -4,7 +4,7 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 require 'bcrypt'
-require 'warden'
+
 
 set :port, 4568
 #set :public_folder, './site/public'
