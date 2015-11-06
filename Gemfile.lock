@@ -3,14 +3,24 @@ GEM
   specs:
     addressable (2.3.8)
     bcrypt (3.1.10)
+    data_objects (0.10.16)
+      addressable (~> 2.1)
     dm-core (1.2.1)
       addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
+    dm-sqlite-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_sqlite3 (~> 0.10.6)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
+    do_sqlite3 (0.10.16)
+      data_objects (= 0.10.16)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -27,6 +37,7 @@ DEPENDENCIES
   bcrypt
   dm-core
   dm-migrations
+  dm-sqlite-adapter
   dm-timestamps
   dm-validations
   sinatra
