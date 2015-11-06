@@ -35,24 +35,24 @@ DataMapper.finalize
 enable :sessions
 
 helpers do
-
-  def login?
-    if session[:username].nil?
-      return false
-    else
+  def authorized?
+    if session[:username] == User.get(1).username
       return true
+    else
+      return false
     end
   end
-
-  def username
-    return session[:username]
-  end
-
 end
 
-get '/meow' do
-  #@hej = user.created_at
-  erb :meow
+get '/private' do
+    unless authorized?
+        halt(401, 'Nooope')
+    end
+  erb :test
+end
+
+get '/login' do
+  erb :login
 end
 
 get '/logout' do
@@ -60,12 +60,14 @@ get '/logout' do
   redirect '/'
 end
 
-post '/form' do
-
+post '/login' do
   if User.get(1).password == BCrypt::Engine.hash_secret(params['password'], User.get(1).salt)
-    session[:username] = params[:username]
+    session[:username] = User.get(1).username
   end
+  redirect to('/private')
+end
 
+post '/signup' do
   password_salt = BCrypt::Engine.generate_salt
   password_hash = BCrypt::Engine.hash_secret(params['password'], password_salt)
   username = params['username']
@@ -74,8 +76,9 @@ post '/form' do
   redirect to('/test')
 end
 
-before '/test' do
-  authenticate!
+get '/signup' do
+  #@hej = user.created_at
+  erb :signup
 end
 
 get '/test' do
