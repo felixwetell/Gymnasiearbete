@@ -6,7 +6,7 @@ require 'dm-migrations'
 require 'dm-postgres-adapter'
 require 'bcrypt'
 
-
+#https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
 #set :public_folder, './site/public'
 
