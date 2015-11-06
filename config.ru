@@ -5,5 +5,5 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 require 'bcrypt'
-require 'dm-sqlite-adapter'
+require 'dm-postgres-adapter'
 run Sinatra::Application

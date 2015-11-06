@@ -3,7 +3,7 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-require 'dm-sqlite-adapter'
+require 'dm-postgres-adapter'
 require 'bcrypt'
 
 
