@@ -46,18 +46,18 @@ helpers do
   end
 end
 
-get './private' do
+get '*/private' do
     unless authorized?
         halt(401, 'Nooope')
     end
   erb :test
 end
 
-get './login' do
+get '*/login' do
   erb :login
 end
 
-get './logout' do
+get '*/logout' do
   session[:username] = nil
   redirect '/'
 end
@@ -78,17 +78,13 @@ post '/signup' do
   redirect to('/test')
 end
 
-get './signup' do
+get '*/signup' do
   #@hej = user.created_at
   erb :signup
 end
 
-get './test' do
+get '*/test' do
   @name = User.all
-  erb :test
-end
-
-get '*/w' do
   erb :test
 end
 
