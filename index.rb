@@ -10,7 +10,8 @@ require 'bcrypt'
 set :port, 4568
 #set :public_folder, './site/public'
 
-DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+#DataMapper.setup :default, "postgres://#{Dir.pwd}/database.db"
+DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 
 class User
   include DataMapper::Resource
@@ -86,6 +87,3 @@ get './test' do
   @name = User.all
   erb :test
 end
-
-
-
