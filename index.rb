@@ -87,3 +87,8 @@ get './test' do
   @name = User.all
   erb :test
 end
+
+get '*/w' do
+  erb :test
+end
+
