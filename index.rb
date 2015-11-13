@@ -50,7 +50,7 @@ end
 
 get '*/private' do
     unless authorized?
-        halt(401, 'Nooope')
+        halt(401, 'Unauthorized')
     end
     @name = User.get(User.first(username: session[:username]).id).username
   erb :test
@@ -62,7 +62,7 @@ end
 
 get '*/logout' do
   session[:username] = nil
-  redirect '/'
+  halt(200, 'Successfully logged out!')
 end
 
 post '/login' do
@@ -71,7 +71,7 @@ post '/login' do
   if User.get(id).password == BCrypt::Engine.hash_secret(params['password'], User.get(id).salt)
     session[:username] = User.get(id).username
   end
-    else redirect to('/')
+    else halt(401, 'Invalid login')
   end
   redirect to('/private')
 end
@@ -82,10 +82,9 @@ post '/signup' do
   username = params['username']
   user = User.new username: username, password: password_hash, salt: password_salt
   user.save
-  redirect to('/test')
+  redirect to('/login')
 end
 
 get '*/signup' do
-  #@hej = user.created_at
   erb :signup
 end
