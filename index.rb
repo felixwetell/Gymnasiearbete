@@ -25,14 +25,12 @@ class User
   property :updated_at , DateTime
 end
 
-
 configure :development do
   DataMapper.auto_upgrade!
   #DataMapper.auto_migrate!
 end
 
 DataMapper.finalize
-
 
 enable :sessions
 
@@ -68,9 +66,12 @@ get '*/logout' do
 end
 
 post '/login' do
-  id = User.first(:username => params['username']).id
+  if User.first(username: params['username']) != nil
+  id = User.first(username: params['username']).id
   if User.get(id).password == BCrypt::Engine.hash_secret(params['password'], User.get(id).salt)
     session[:username] = User.get(id).username
+  end
+    else redirect to('/')
   end
   redirect to('/private')
 end
