@@ -3,15 +3,15 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-require 'dm-postgres-adapter'
-#require 'dm-sqlite-adapter'
+#require 'dm-postgres-adapter'
+require 'dm-sqlite-adapter'
 require 'bcrypt'
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
 
-#DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
-DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
+DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+#DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 
 class User
   include DataMapper::Resource
@@ -31,7 +31,6 @@ class Messages
   property :id          , Serial
   property :message     , String
   property :user        , String
-  property :created_at  , DateTime
 end
 
 configure :development do
@@ -57,23 +56,35 @@ helpers do
   end
 end
 
+####################################
+
 get '*/private' do
     unless authorized?
         halt(401, 'Unauthorized')
     end
     @name = User.get(User.first(username: session[:username]).id).username
-    @message = Messages.last(user: session[:username]).message
-    @time = Messages.last(user: session[:username]).created_at
+    #@time = Messages.all(user: session[:username]).created_at
+
+    @messages = Messages.all(user: session[:username])
 
   erb :test
 end
+
+# Messages.all(user: "m").each do |test|
+#   if test.id == 4
+#     p test.user
+#   end
+# end
 
 post '/add_message' do
   Messages.create(message: params['message'], user: session[:username])
   redirect to('/private')
 end
 
+#####################################
+
 get '*/login' do
+  session[:username] = nil
   erb :login
 end
 

@@ -11,8 +11,39 @@
   <input type="submit"/>
 </form>
 
+<script>
+    function createTable(tableData) {
+        var table = document.createElement('table')
+                , tableBody = document.createElement('tbody');
 
-<p> <%= @name %> wrote "<%= @message %>" at <%= @time %> </p>
+        tableData.forEach(function(rowData) {
+            var row = document.createElement('tr');
+
+            rowData.forEach(function(cellData) {
+                var cell = document.createElement('td');
+                cell.appendChild(document.createTextNode(cellData));
+                row.appendChild(cell);
+            });
+
+            tableBody.appendChild(row);
+        });
+
+        table.appendChild(tableBody);
+        document.body.appendChild(table);
+    }
+    <% final = [] %>
+    <% @messages.each do |message| %>
+    <% merge = [] %>
+    <% merge << message.user %>
+    <% #merge << message.created_at %>
+    <% unless message.message == nil %>
+    <% merge << message.message %>
+    <% end %>
+    <% final << merge %>
+    <% end %>
+
+    createTable(<%= final %>);
+</script>
 
 
 </body>
