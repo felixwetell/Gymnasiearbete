@@ -25,6 +25,15 @@ class User
   property :updated_at , DateTime
 end
 
+class Messages
+  include DataMapper::Resource
+
+  property :id          , Serial
+  property :message     , String
+  property :user        , String
+  property :created_at  , DateTime
+end
+
 configure :development do
   DataMapper.auto_upgrade!
   #DataMapper.auto_migrate!
@@ -53,7 +62,15 @@ get '*/private' do
         halt(401, 'Unauthorized')
     end
     @name = User.get(User.first(username: session[:username]).id).username
+    @message = Messages.last(user: session[:username]).message
+    @time = Messages.last(user: session[:username]).created_at
+
   erb :test
+end
+
+post '/add_message' do
+  Messages.create(message: params['message'], user: session[:username])
+  redirect to('/private')
 end
 
 get '*/login' do

@@ -6,6 +6,14 @@
 </head>
 <body>
 
-<p> Welcome <%= @name %> </p>
+<form name="add_message" method="POST" action="/add_message">
+  <input name="message"/>
+  <input type="submit"/>
+</form>
+
+
+<p> <%= @name %> wrote "<%= @message %>" at <%= @time %> </p>
+
+
 </body>
 </html>
