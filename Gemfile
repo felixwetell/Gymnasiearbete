@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.1.7'
+ruby '2.2.3'
 gem 'sinatra'
 gem 'dm-core'
 gem 'dm-timestamps'
