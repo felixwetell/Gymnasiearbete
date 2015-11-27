@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="se">
+<head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Vet inte</title>
+  <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>"/>
 </head>
+
 <body>
 
-<h2>Login</h2>
+<div id="navigator">
 
-<form name="login" method="POST" action="/login">
-  <div style="width: 100px">
-    <input id="Username" placeholder="Username" name="username"/>
-    <input id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
-    <input type="submit" style="margin-top: 10px;"/>
-  </div>
-</form>
+  <h3>Hem</h3>
+  <h3>Om oss</h3>
+
+</div>
+
+<div id="login">
+
+  <h2>Login</h2>
+
+  <form name="login" method="POST" action="/login">
+
+    <div style="width: 100px">
+
+      <input id="Username" placeholder="Username" name="username"/>
+      <input id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
+      <input type="submit" style="margin-top: 10px;"/>
+
+    </div>
+
+  </form>
+
+</div>
+
+<div id="signup">
+
+  <h2>Sign Up</h2>
+
+  <form name="signup" method="POST" action="/signup">
+    <div style="width: 100px">
+      <input id="Username" placeholder="Username" name="username"/>
+      <input id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
+      <input type="submit" style="margin-top: 10px;"/>
+    </div>
+  </form>
+
+</div>
 
 </body>
+
 </html>
