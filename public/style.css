@@ -1,8 +1,5 @@
 body {
     background-color:white;
-    background-image: url('../views/img/yosemite.jpg') !important;
-    background-repeat:no-repeat;
-    background-position:top center;
     margin:0;
     padding:0;
 }
@@ -14,8 +11,12 @@ a:-webkit-any-link {
 #navigator {
     width: 100%;
     height: 20%;
-    margin: 0;
+    margin: 0 0 50px;
     background-color: aqua;
+}
+
+.navigator-text {
+    margin: 10px;
 }
 
 #login {
