@@ -12,37 +12,23 @@
 </form>
 
 <script>
-    function createTable(tableData) {
-        var table = document.createElement('table')
-                , tableBody = document.createElement('tbody');
 
-        tableData.forEach(function(rowData) {
-            var row = document.createElement('tr');
 
-            rowData.forEach(function(cellData) {
-                var cell = document.createElement('td');
-                cell.appendChild(document.createTextNode(cellData));
-                row.appendChild(cell);
-            });
+function createTables(times) {
+    var table = document.createElement('table');
+    for (var i = 0; i < times.length; i++){
+        var tr = document.createElement('tr');
 
-            tableBody.appendChild(row);
-        });
+        var td1 = document.createElement('td');
 
-        table.appendChild(tableBody);
-        document.body.appendChild(table);
+        td1.appendChild(document.createTextNode(times[i]));
+        tr.appendChild(td1);
+
+        table.appendChild(tr);
     }
-    <% final = [] %>
-    <% @messages.each do |message| %>
-    <% merge = [] %>
-    <% merge << message.user %>
-    <% #merge << message.created_at %>
-    <% unless message.message == nil %>
-    <% merge << message.message %>
-    <% end %>
-    <% final << merge %>
-    <% end %>
-
-    createTable(<%= final %>);
+    document.body.appendChild(table);
+}
+        createTables(<%= @times %>)
 </script>
 
 

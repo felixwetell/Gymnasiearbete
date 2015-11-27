@@ -6,6 +6,7 @@ require 'dm-migrations'
 require 'dm-postgres-adapter'
 #require 'dm-sqlite-adapter'
 require 'bcrypt'
+#require 'sinatra/reloader'
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
@@ -32,6 +33,18 @@ class Messages
   property :message     , String
   property :user        , String
 end
+
+class Friends
+  include DataMapper::Resource
+
+  property :id          , Serial
+  property :user1       , String
+  property :user2       , String
+end
+
+#
+# ett table med person 1 och person 2 = friends
+# else if p1 = jnkjn and p2 = nil ....
 
 configure :development do
   DataMapper.auto_upgrade!
@@ -67,14 +80,12 @@ get '*/private' do
 
     @messages = Messages.all(user: session[:username])
 
+    @friend_msg = Messages.all(user: Friends.first(user1: session[:username]).user2)
+    p @friend_msg
+
+    @times = [12, 132, 1433, 15554]
   erb :test
 end
-
-# Messages.all(user: "m").each do |test|
-#   if test.id == 4
-#     p test.user
-#   end
-# end
 
 post '/add_message' do
   Messages.create(message: params['message'], user: session[:username])
@@ -110,9 +121,36 @@ post '/signup' do
   username = params['username']
   user = User.new username: username, password: password_hash, salt: password_salt
   user.save
+
   redirect to('/login')
 end
+
+
+
+get '*/add_friend_test' do
+  erb :add_friend_test
+end
+
+post '/add_friend' do
+  if User.first(username: params['add_friend']).username == params['add_friend']
+     Friends.create(user1: session[:username], user2: params['add_friend'])
+  end
+  halt(200, "Successfully added friend! You're not forever alone atm! :D")
+end
+
+
 
 get '*/signup' do
   erb :signup
 end
+
+
+  # dynamic_name = "ClassName"
+  # Object.const_set(dynamic_name, Class.new {
+  #                                include DataMapper::Resource
+  #                                property :id , Serial
+  #                                property :friend , String
+  #                              })
+  #
+  # klass = Object.const_set name, Struct.new(*attributes)
+  #
