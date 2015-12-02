@@ -6,15 +6,8 @@ require 'dm-migrations'
 require 'dm-postgres-adapter'
 # require 'dm-sqlite-adapter'
 require 'bcrypt'
-<<<<<<< HEAD
 # require 'sinatra/reloader'
-=======
-<<<<<<< HEAD
-# require 'sinatra/reloader'
-=======
->>>>>>> fe05b1782bc3b9563bf5a1160f88d239780b9d94
-#require 'sinatra/reloader'
->>>>>>> origin/master
+
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
@@ -22,7 +15,7 @@ set :port, 4568
 # DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
-set :public, 'public'
+set :public_folder, 'public'
 
 class User
   include DataMapper::Resource
