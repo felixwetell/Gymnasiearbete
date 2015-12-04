@@ -7,9 +7,8 @@
 <body>
 
 
-<form>
 
-<select>
+<select id="eventType">
   <option value="Bouldering">Bouldering</option>
   <option value="TopRope">TopRope</option>
   <option value="Lead">Lead</option>
@@ -17,7 +16,7 @@
   <option value="Other">Other</option>
 </select>
 
-<select>
+<select id="time">
   <option value="09:00">09:00</option>
   <option value="09:30">09:30</option>
   <option value="10:00">10:00</option>
@@ -49,11 +48,27 @@
 
   <p>Willing to switch to:</p>
 
-    <input type="checkbox" value="Bouldering">Bouldering
-    <input type="checkbox" value="TopRope">TopRope
-    <input type="checkbox" value="Lead">Lead
+  <form id="formie">
+    <input type="checkbox" name="box" value="Bouldering">Bouldering
+    <input type="checkbox" name="box" value="TopRope">TopRope
+    <input type="checkbox" name="box" value="Lead">Lead
 
-</form>
+    <button type="submit" onclick="checkedBoxes(this.form)">submit</button>
+  </form>
+
+<script>
+
+  function checkedBoxes(form){
+      var checkedBoxesArray = [];
+      for(var i = 0; i < 3; i++){
+          if(form.box[i].checked){
+              checkedBoxesArray.push(form.box[i].value);
+          }
+      }
+      console.log(checkedBoxesArray);
+  }
+
+</script>
 
 
 
