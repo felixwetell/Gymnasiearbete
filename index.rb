@@ -32,11 +32,12 @@ end
 class Events
   include DataMapper::Resource
 
-  property :id            , Serial
-  property :event_type    , String
-  property :event_time    , String
-  property :event_switch  , String
-  property :user          , String
+  property :id                , Serial
+  property :event_type        , String
+  property :event_time_from   , String
+  property :event_time_to     , String
+  property :event_switch      , String
+  property :user              , String
 end
 
 class Friends
@@ -173,8 +174,9 @@ post '/events' do
   end
   Events.create(
       user: session['username'],
-      event_time: params['eventTime'],
-      event_type: params['eventType'],
+      event_time_from: params['event_time_from'],
+      event_time_to: params['event_time_to'],
+      event_type: params['event_type'],
       event_switch: box_option
   )
 end

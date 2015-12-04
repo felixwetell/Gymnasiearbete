@@ -40,11 +40,11 @@ a:-webkit-any-link {
     margin: 50px;
 }
 
-#user-div {
+#user_div {
     width: 600px;
     height: 500px;
     float: right;
-    background-color: blue;
+    background-color: yellow;
     position: relative;
 }
 
