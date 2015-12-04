@@ -69,7 +69,7 @@ a:-webkit-any-link {
 #calendar_table {
     width: auto;
     height: auto;
-    margin: 10px 50px 20px;
+    margin: 10px auto 20px;
     padding: 10px;
 }
 
