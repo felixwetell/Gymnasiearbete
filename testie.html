@@ -8,24 +8,48 @@
 
 
 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+<canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #000000;">
 </canvas>
 
 <script>
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    ctx.moveTo(0,0);
-    ctx.lineTo(200,100);
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.lineTo(150,150);
     ctx.stroke();
 
-    var b = document.getElementById("myCanvas");
-    var ctr = b.getContext("2d");
-    ctr.moveTo(1, 1);
-    ctr.lineTo(100, 200);
-    ctr.stroke();
+    ctx.lineTo(200,150);
+    ctx.stroke();
+
+    ctx.lineTo(200,200);
+    ctx.stroke();
+
+    ctx.lineTo(100,200);
+    ctx.stroke();
+
+    ctx.lineTo(100,100);
+
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillStyle="red";
+    ctx.fill();
 
 
+    ctx.fillStyle="blue"
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("TEXT",10,50);
 
+for(var i = 400; i < 500; i += 10)
+    {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(i, 400, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
 </script>
 
 
