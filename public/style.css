@@ -78,6 +78,10 @@ a:-webkit-any-link {
     height: auto;
 }
 
+.table_data_day {
+    text-align: center;
+}
+
 .table_data {
     width: 150px;
     height: 100px;
