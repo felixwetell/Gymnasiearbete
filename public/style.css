@@ -2,6 +2,7 @@ body {
     background-color: white;
     margin: 0 !important;
     padding: 0 !important;
+    position: relative;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -39,11 +40,12 @@ a:-webkit-any-link {
     margin: 50px;
 }
 
-#login-signup-div {
-    width: 400px;
+#user-div {
+    width: 600px;
     height: 500px;
     float: right;
     background-color: blue;
+    position: relative;
 }
 
 #login {
