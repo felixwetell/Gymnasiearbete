@@ -1,7 +1,12 @@
 body {
-    background-color:white;
-    margin:0;
-    padding:0;
+    background-color: white;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+p, a, h1, h2, h3, h4, h5, h6 {
+    text-decoration-color: black;
+    font-family: Arial, sans-serif;
 }
 
 a:-webkit-any-link {
@@ -10,13 +15,35 @@ a:-webkit-any-link {
 
 #navigator {
     width: 100%;
-    height: 20%;
+    height: 50px;
     margin: 0 0 50px;
     background-color: aqua;
+    position: relative;
+}
+
+.navigator img {
+    height: 50px;
+    width: 50px;
+    float: left;
 }
 
 .navigator-text {
-    margin: 10px;
+    margin: 15px;
+    float: left;
+
+}
+
+#text-div {
+    width: 500px;
+    height: auto;
+    margin: 50px;
+}
+
+#login-signup-div {
+    width: 400px;
+    height: 500px;
+    float: right;
+    background-color: blue;
 }
 
 #login {
