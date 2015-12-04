@@ -65,3 +65,22 @@ a:-webkit-any-link {
     border-radius: 5px;
     background-color: grey;
 }
+
+#calendar_table {
+    width: auto;
+    height: auto;
+    margin: 10px 50px 20px;
+    padding: 10px;
+}
+
+.table_row {
+    width: auto;
+    height: auto;
+}
+
+.table_data {
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 0;
+}
