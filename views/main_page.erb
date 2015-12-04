@@ -2,23 +2,16 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>"/>
-=======
-  <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>">
->>>>>>> bd185221bcfce24fe83f09e9f6d0a9fa3018e4b9
   <title></title>
 </head>
 <body>
 
 
-<<<<<<< HEAD
+
 <form name="events" method="POST" action="/events">
 
 <select name="event_type">
-=======
-<select id="eventType">
->>>>>>> bd185221bcfce24fe83f09e9f6d0a9fa3018e4b9
   <option value="Bouldering">Bouldering</option>
   <option value="TopRope">TopRope</option>
   <option value="Lead">Lead</option>
@@ -26,7 +19,7 @@
   <option value="Other">Other</option>
 </select>
 
-<<<<<<< HEAD
+
   <select name="event_time_from">
     <option value="09:00">09:00</option>
     <option value="09:30">09:30</option>
@@ -89,69 +82,15 @@
     <option value="N/A">N/A</option>
   </select>
 
-  <p>Willing to switch to:</p>
-=======
-<select id="time">
-  <option value="09:00">09:00</option>
-  <option value="09:30">09:30</option>
-  <option value="10:00">10:00</option>
-  <option value="10:30">10:30</option>
-  <option value="11:00">11:00</option>
-  <option value="11:30">11:30</option>
-  <option value="12:00">12:00</option>
-  <option value="12:30">12:30</option>
-  <option value="13:00">13:00</option>
-  <option value="13:30">13:30</option>
-  <option value="14:00">14:00</option>
-  <option value="14:30">14:30</option>
-  <option value="15:00">15:00</option>
-  <option value="15:30">15:30</option>
-  <option value="16:00">16:00</option>
-  <option value="16:30">16:30</option>
-  <option value="17:00">17:00</option>
-  <option value="17:30">17:30</option>
-  <option value="18:00">18:00</option>
-  <option value="18:30">18:30</option>
-  <option value="19:00">19:00</option>
-  <option value="19:30">19:30</option>
-  <option value="20:00">20:00</option>
-  <option value="20:30">20:30</option>
-  <option value="21:00">21:00</option>
-  <option value="21:30">21:30</option>
-  <option value="22:00">22:00</option>
-</select>
-
 <p>Willing to switch to:</p>
 
-<form id="formie">
-  <input type="checkbox" name="box" value="Bouldering">Bouldering
-  <input type="checkbox" name="box" value="TopRope">TopRope
-  <input type="checkbox" name="box" value="Lead">Lead
+  <input type="checkbox" name="box1" value="Bouldering">Bouldering
+  <input type="checkbox" name="box2" value="TopRope">TopRope
+  <input type="checkbox" name="box3" value="Lead">Lead
 
-  <button type="submit" onclick="checkedBoxes(this.form)">submit</button>
+  <button type="submit">submit</button>
 </form>
 
-<script>
-
-    function checkedBoxes(form) {
-        var checkedBoxesArray = [];
-        for (var i = 0; i < 3; i++) {
-            if (form.box[i].checked) {
-                checkedBoxesArray.push(form.box[i].value);
-            }
-        }
-        console.log(checkedBoxesArray);
-    }
->>>>>>> bd185221bcfce24fe83f09e9f6d0a9fa3018e4b9
-
-    <input type="checkbox" name="box1" value="Bouldering">Bouldering
-    <input type="checkbox" name="box2" value="TopRope">TopRope
-    <input type="checkbox" name="box3" value="Lead">Lead
-
-<<<<<<< HEAD
-    <button type="submit">submit</button>
-</form>
-=======
 <h1 style="text-align: center;">Current month: December</h1>
 
 <table id="calendar_table">
@@ -215,7 +154,6 @@
     <td class="table_data"></td>
     <td class="table_data"></td>
   </tr>
->>>>>>> bd185221bcfce24fe83f09e9f6d0a9fa3018e4b9
 
 </table>
 
