@@ -12,7 +12,7 @@ require 'sinatra/reloader'
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
 
- DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 #DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
 set :public_folder, 'public'
@@ -20,30 +20,31 @@ set :public_folder, 'public'
 class User
   include DataMapper::Resource
 
-  property :id       , Serial
-  property :username , String
-  property :password , String, :length => 60
-  property :salt     , String, :length => 29
+  property :id            , Serial
+  property :username      , String
+  property :password      , String, :length => 60
+  property :salt          , String, :length => 29
 
-  property :created_at , DateTime
-  property :updated_at , DateTime
+  property :created_at    , DateTime
+  property :updated_at    , DateTime
 end
 
 class Events
   include DataMapper::Resource
 
-  property :id          , Serial
-  property :event_type  , String
-  property :event_time  , String
-  property :user        , String
+  property :id            , Serial
+  property :event_type    , String
+  property :event_time    , String
+  property :event_switch  , String
+  property :user          , String
 end
 
 class Friends
   include DataMapper::Resource
 
-  property :id          , Serial
-  property :user1       , String
-  property :user2       , String
+  property :id            , Serial
+  property :user1         , String
+  property :user2         , String
 end
 
 configure :development do
@@ -75,24 +76,28 @@ not_found do
 end
 
 get '*/private' do
-    unless authorized?
-        halt(401, 'Unauthorized')
-    end
-    begin
+  unless authorized?
+    halt(401, 'Unauthorized')
+  end
+  begin
     @name = User.get(User.first(username: session[:username]).id).username
 
-    #@friend_msg = Messages.all(user: Friends.first(user1: session[:username]).user2)
-    #p @friend_msg
+      #@friend_msg = Messages.all(user: Friends.first(user1: session[:username]).user2)
+      #p @friend_msg
 
-    #@times = [12, 132, 1433, 15554]
-    rescue
-      erb :error_500
-    end
+      #@times = [12, 132, 1433, 15554]
+  rescue
+    erb :error_500
+  end
   erb :main_page
 end
 
 post '/create_event' do
-  Events.create(event_type: params['event_type'], event_time: params['event_time'] , user: session[:username])
+  Events.create(
+      event_type: params['event_type'],
+      event_time: params['event_time'],
+      user: session[:username]
+  )
   redirect to('/private')
 end
 
@@ -109,10 +114,10 @@ end
 post '/login' do
   begin
     if User.first(username: params['username']) != nil
-    id = User.first(username: params['username']).id
-    if User.get(id).password == BCrypt::Engine.hash_secret(params['password'], User.get(id).salt)
-      session[:username] = User.get(id).username
-    end
+      id = User.first(username: params['username']).id
+      if User.get(id).password == BCrypt::Engine.hash_secret(params['password'], User.get(id).salt)
+        session[:username] = User.get(id).username
+      end
     else
       halt(401, 'Invalid login')
     end
@@ -127,7 +132,11 @@ post '/signup' do
     password_salt = BCrypt::Engine.generate_salt
     password_hash = BCrypt::Engine.hash_secret(params['password'], password_salt)
     username = params['username']
-    user = User.new username: username, password: password_hash, salt: password_salt
+    user = User.create(
+        username: username,
+        password: password_hash,
+        salt: password_salt
+    )
     user.save
     redirect to('/login')
   rescue
@@ -142,12 +151,32 @@ end
 post '/add_friend' do
   begin
     if User.first(username: params['add_friend']).username == params['add_friend']
-      Friends.create(user1: session[:username], user2: params['add_friend'])
+      Friends.create(
+          user1: session[:username],
+          user2: params['add_friend']
+      )
       halt(200, "Successfully added friend! You're not forever alone atm! :D")
     end
   rescue
     erb :error_500
   end
+end
+
+post '/events' do
+  box_option = ""
+  i = 1
+  while i < 4
+    unless params["box#{i}"] == nil
+      box_option = box_option + params["box#{i}"] + " "
+    end
+    i += 1
+  end
+  Events.create(
+      user: session['username'],
+      event_time: params['eventTime'],
+      event_type: params['eventType'],
+      event_switch: box_option
+  )
 end
 
 get '*/signup' do
