@@ -95,13 +95,13 @@
 <table id="calendar_table">
 
   <tr class="table_row">
-    <td class="table_data_day" style="background-color: red;"> <script> document.write(dateR(<%= (Date.today).wday %>)) </script> </td>
+    <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> </td>
     <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> </td>
     <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> </td>
     <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> </td>
     <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> </td>
     <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> </td>
-    <td class="table_data_day"><b> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> </b></td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script></td>
   </tr>
 
   <tr>
