@@ -5,7 +5,7 @@ require 'dm-validations'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
 #require 'dm-sqlite-adapter'
-#require 'bcrypt'
+require 'bcrypt'
 #equire 'sinatra/reloader'
 
 

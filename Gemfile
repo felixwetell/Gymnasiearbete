@@ -8,6 +8,6 @@ gem 'dm-validations'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 #gem 'dm-sqlite-adapter'
-#gem 'bcrypt'
+gem 'bcrypt'
 #gem 'sinatra-reloader'
 
