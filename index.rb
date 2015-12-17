@@ -83,10 +83,7 @@ get '*/private' do
   begin
     @name = User.get(User.first(username: session[:username]).id).username
 
-      #@friend_msg = Messages.all(user: Friends.first(user1: session[:username]).user2)
-      #p @friend_msg
-
-      #@times = [12, 132, 1433, 15554]
+    
   rescue
     erb :error_500
   end
