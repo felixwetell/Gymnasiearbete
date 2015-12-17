@@ -7,6 +7,7 @@ require 'dm-migrations'
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
+# require 'chronic'
 
 
 #https://git.heroku.com/stark-earth-2441.git
@@ -83,7 +84,10 @@ get '*/private' do
   begin
     @name = User.get(User.first(username: session[:username]).id).username
 
+<<<<<<< HEAD
+=======
     
+>>>>>>> fe534fa4cd578763cac5e3b8680b424483d37e2e
   rescue
     erb :error_500
   end
@@ -181,5 +185,3 @@ end
 get '*/signup' do
   erb :signup
 end
-
-

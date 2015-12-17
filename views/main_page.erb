@@ -7,8 +7,6 @@
 </head>
 <body>
 
-
-
 <form name="events" method="POST" action="/events">
 
 <select name="event_type">
@@ -91,6 +89,7 @@
   <button type="submit">submit</button>
 </form>
 
+<<<<<<< HEAD
 <script>
 
   function dateR(wday) {
@@ -122,10 +121,14 @@
   }
 </script>
 <h1 style="text-align: center;">Current month: December</h1>
+=======
+<h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
+>>>>>>> dcd54fdd0f0b1514cda1ec39890f0c35d4351c0f
 
 <table id="calendar_table">
 
   <tr class="table_row">
+<<<<<<< HEAD
     <td class="table_data_day" id="dag1"> <script> document.write(dateR(<%= (Date.today).wday %>)) </script> </td>
     <td class="table_data_day" id="dag2"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> </td>
     <td class="table_data_day" id="dag3"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> </td>
@@ -173,6 +176,15 @@
     <td class="table_data"></td>
     <td class="table_data"></td>
     <td class="table_data"></td>
+=======
+    <td>Måndag <%= %> </td>
+    <td>Tisdag <%= %> </td>
+    <td>Onsdag</td>
+    <td>Torsdag</td>
+    <td>Fredag</td>
+    <td>Lördag</td>
+    <td style="background-color: red;"><b>Söndag</b></td>
+>>>>>>> dcd54fdd0f0b1514cda1ec39890f0c35d4351c0f
   </tr>
 
   <tr>
@@ -186,6 +198,5 @@
   </tr>
 
 </table>
-
 </body>
 </html>
