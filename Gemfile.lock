@@ -13,6 +13,9 @@ GEM
       dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
+    dm-postgres-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_postgres (~> 0.10.6)
     dm-sqlite-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_sqlite3 (~> 0.10.6)
@@ -20,6 +23,8 @@ GEM
       dm-core (~> 1.2.0)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
+    do_postgres (0.10.16)
+      data_objects (= 0.10.16)
     do_sqlite3 (0.10.16)
       data_objects (= 0.10.16)
     multi_json (1.11.2)
@@ -50,6 +55,7 @@ DEPENDENCIES
   bcrypt
   dm-core
   dm-migrations
+  dm-postgres-adapter
   dm-sqlite-adapter
   dm-timestamps
   dm-validations

@@ -3,11 +3,10 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-# require 'dm-postgres-adapter'
+#require 'dm-postgres-adapter'
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
-# require 'chronic'
 
 
 #https://git.heroku.com/stark-earth-2441.git

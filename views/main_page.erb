@@ -3,6 +3,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>"/>
+  <script type="text/javascript" src="<%= url('main.js') %>"></script>
   <title></title>
 </head>
 <body>
@@ -89,102 +90,18 @@
   <button type="submit">submit</button>
 </form>
 
-<<<<<<< HEAD
-<script>
-
-  function dateR(wday) {
-    var day = "";
-    switch (wday) {
-      case 1:
-        day = "Måndag";
-        break;
-      case 2:
-        day = "Tisdag";
-        break;
-      case 3:
-        day = "Onsdag";
-        break;
-      case 4:
-        day = "Torsdag";
-        break;
-      case 5:
-        day = "Fredag";
-        break;
-      case 6:
-        day = "Lördag";
-        break;
-      case 0:
-        day = "Söndag";
-        break;
-    }
-    return day
-  }
-</script>
-<h1 style="text-align: center;">Current month: December</h1>
-=======
 <h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
->>>>>>> dcd54fdd0f0b1514cda1ec39890f0c35d4351c0f
 
 <table id="calendar_table">
 
   <tr class="table_row">
-<<<<<<< HEAD
-    <td class="table_data_day" id="dag1"> <script> document.write(dateR(<%= (Date.today).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag2"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag3"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag4"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag5"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag6"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> </td>
-    <td class="table_data_day" id="dag7" style="background-color: red;"><b> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> </b></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-=======
-    <td>Måndag <%= %> </td>
-    <td>Tisdag <%= %> </td>
-    <td>Onsdag</td>
-    <td>Torsdag</td>
-    <td>Fredag</td>
-    <td>Lördag</td>
-    <td style="background-color: red;"><b>Söndag</b></td>
->>>>>>> dcd54fdd0f0b1514cda1ec39890f0c35d4351c0f
+    <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script></td>
   </tr>
 
   <tr>
