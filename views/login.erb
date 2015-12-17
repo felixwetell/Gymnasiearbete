@@ -18,7 +18,7 @@
 
 </div>
 
-<div id="text-div">
+<div id="left_side">
   <h2 style="text-align: center">Välkommen till ***</h2>
 
   <p>
@@ -33,7 +33,7 @@
   </p>
 </div>
 
-<div class="user_div">
+<div id="right_side">
 
   <div id="login">
 
@@ -43,9 +43,14 @@
 
       <div style="width: 100px">
 
-        <input id="Username" placeholder="Username" name="username"/>
-        <input id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
-        <input type="submit" style="margin-top: 10px;"/>
+        <input class="submition" id="Username" placeholder="Username" name="username"/>
+        <input class="submition" id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
+
+        <div>
+          <input id="Checkbox" placeholder="Checkbox" type="checkbox" value="1" style="float: left; margin: auto;" name="remeber_me"/>
+          <p style="font-size: small; width: 100px; margin-left: 10px;">Remeber me?</p>
+        </div>
+        <button type="submit">Submit</button>
 
       </div>
 
@@ -59,9 +64,9 @@
 
     <form name="signup" method="POST" action="/signup">
       <div style="width: 100px">
-        <input id="Username" placeholder="Username" name="username"/>
-        <input id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
-        <input type="submit" style="margin-top: 10px;"/>
+        <input class="submition" id="Username" placeholder="Username" name="username"/>
+        <input class="submition" id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
+        <button type="submit" style="margin-top: 10px;">Submit</button>
       </div>
     </form>
 
