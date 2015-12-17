@@ -7,6 +7,7 @@ require 'dm-migrations'
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
+# require 'chronic'
 
 
 #https://git.heroku.com/stark-earth-2441.git
@@ -83,10 +84,6 @@ get '*/private' do
   begin
     @name = User.get(User.first(username: session[:username]).id).username
 
-      #@friend_msg = Messages.all(user: Friends.first(user1: session[:username]).user2)
-      #p @friend_msg
-
-      #@times = [12, 132, 1433, 15554]
   rescue
     erb :error_500
   end
@@ -184,5 +181,3 @@ end
 get '*/signup' do
   erb :signup
 end
-
-

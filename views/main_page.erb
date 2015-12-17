@@ -7,8 +7,6 @@
 </head>
 <body>
 
-
-
 <form name="events" method="POST" action="/events">
 
 <select name="event_type">
@@ -91,58 +89,18 @@
   <button type="submit">submit</button>
 </form>
 
-<h1 style="text-align: center;">Current month: December</h1>
+<h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
 
 <table id="calendar_table">
 
   <tr class="table_row">
-    <td class="table_data_day">Måndag</td>
-    <td class="table_data_day">Tisdag</td>
-    <td class="table_data_day">Onsdag</td>
-    <td class="table_data_day">Torsdag</td>
-    <td class="table_data_day">Fredag</td>
-    <td class="table_data_day">Lördag</td>
-    <td class="table_data_day" style="background-color: red;"><b>Söndag</b></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
+    <td>Måndag <%= %> </td>
+    <td>Tisdag <%= %> </td>
+    <td>Onsdag</td>
+    <td>Torsdag</td>
+    <td>Fredag</td>
+    <td>Lördag</td>
+    <td style="background-color: red;"><b>Söndag</b></td>
   </tr>
 
   <tr>
@@ -156,6 +114,5 @@
   </tr>
 
 </table>
-
 </body>
 </html>
