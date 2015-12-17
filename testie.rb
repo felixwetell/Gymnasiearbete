@@ -18,3 +18,7 @@
 # t1.join
 # t2.join
 
+require 'date'
+
+date = Date.today
+p date
