@@ -84,6 +84,10 @@ get '*/private' do
   begin
     @name = User.get(User.first(username: session[:username]).id).username
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> fe534fa4cd578763cac5e3b8680b424483d37e2e
   rescue
     erb :error_500
   end
