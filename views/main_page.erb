@@ -10,13 +10,13 @@
 
 <form name="events" method="POST" action="/events">
 
-<select name="event_type">
-  <option value="Bouldering">Bouldering</option>
-  <option value="TopRope">TopRope</option>
-  <option value="Lead">Lead</option>
-  <option value="Top and Lead">Top and lead</option>
-  <option value="Other">Other</option>
-</select>
+  <select name="event_type">
+    <option value="Bouldering">Bouldering</option>
+    <option value="TopRope">TopRope</option>
+    <option value="Lead">Lead</option>
+    <option value="Top and Lead">Top and lead</option>
+    <option value="Other">Other</option>
+  </select>
 
 
   <select name="event_time_from">
@@ -81,7 +81,7 @@
     <option value="N/A">N/A</option>
   </select>
 
-<p>Willing to switch to:</p>
+  <p>Willing to switch to:</p>
 
   <input type="checkbox" name="box1" value="Bouldering">Bouldering
   <input type="checkbox" name="box2" value="TopRope">TopRope
@@ -92,62 +92,84 @@
 
 <div>
 
-<h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
+  <h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
 
-<table id="calendar_table">
+  <table id="calendar_table">
 
-  <tr class="table_row">
-    <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> <%= "#{Date.today.day}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> <%= "#{Date.today.day + 1}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> <%= "#{Date.today.day + 2}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> <%= "#{Date.today.day + 3}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> <%= "#{Date.today.day + 4}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> <%= "#{Date.today.day + 5}/#{Date.today.month}" %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> <%= "#{Date.today.day + 6}/#{Date.today.month}" %> </td>
-  </tr>
+    <tr class="table_row">
+      <td class="table_data_day" style="background-color: red;"><b>
+        <script> document.write(dateR(<%= (Date.today).wday %>)) </script>
+      </b> <%= "#{Date.today.day}/#{Date.today.month}" %> </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> <%= "#{Date.today.day + 1}/#{Date.today.month}" %>
+      </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> <%= "#{Date.today.day + 2}/#{Date.today.month}" %>
+      </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> <%= "#{Date.today.day + 3}/#{Date.today.month}" %>
+      </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> <%= "#{Date.today.day + 4}/#{Date.today.month}" %>
+      </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> <%= "#{Date.today.day + 5}/#{Date.today.month}" %>
+      </td>
+      <td class="table_data_day">
+        <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> <%= "#{Date.today.day + 6}/#{Date.today.month}" %>
+      </td>
+    </tr>
 
-  <tr>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-    <td class="table_data"></td>
-  </tr>
-</table>
+    <tr>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+      <td class="table_data"></td>
+    </tr>
+  </table>
 </div>
 
 <div id="more_info_placeholder">
 
-<<<<<<< HEAD
   <img id="svg_pil" src="../img/meow.svg" style="width: 50px; height: 20px;"/>
+
   <div id="more_info_box">
     <div class="event_info">
       <h3>What:</h3>
+
       <p></p>
+
       <h3>When:</h3>
+
       <p></p>
+
       <h3>Comment:</h3>
+
       <p></p>
     </div>
 
     <div class="event_info">
       <h3>What:</h3>
+
       <p></p>
+
       <h3>When:</h3>
+
       <p></p>
+
       <h3>Comment:</h3>
+
       <p></p>
     </div>
 
   </div>
 
 
-  </div>
+</div>
 
-=======
-  </div>
->>>>>>> e9f9558be0067dc033b55ee5b7cfe1cffda252a3
+
 </body>
 </html>

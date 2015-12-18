@@ -36,7 +36,10 @@ a:-webkit-any-link {
     margin: 0;
 }
 
-<<<<<<< HEAD
+#more_info_placeholder {
+
+}
+
 #more_info_box {
     width: 1000px;
     height: 200px;
@@ -56,9 +59,5 @@ a:-webkit-any-link {
     float: left;
     background-color: grey;
 }
-=======
-#more_info_placeholder {
 
-}
 
->>>>>>> e9f9558be0067dc033b55ee5b7cfe1cffda252a3
