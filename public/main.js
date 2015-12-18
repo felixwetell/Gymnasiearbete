@@ -24,5 +24,9 @@ function dateR(wday) {
             break;
     }
     return day
+<<<<<<< HEAD
+}
+=======
 }
 
+>>>>>>> a5d2a1d0141855d5b35085dbfec3d8322fb1107b

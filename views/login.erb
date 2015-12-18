@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>"/>
 </head>
 
-<body>
+<body background="../public/img/yosemite.jpg">
 
 <div id="navigator">
 
@@ -19,23 +19,29 @@
 </div>
 
 <div id="left_side">
-  <h2 style="text-align: center">Välkommen till ***</h2>
+  <div id="text_box">
+    <h2 style="text-align: center">Välkommen till ***</h2>
 
-  <p>
-    Curabitur non sapien vestibulum, feugiat nunc quis, lobortis lorem. Proin risus lacus, pulvinar sed dapibus id,
-    vehicula sed justo. In hac habitasse platea dictumst. Duis neque dolor, ultricies sit amet auctor in, sodales vitae
-    sem. Phasellus dignissim dui eget lacus tristique suscipit. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Morbi viverra egestas porta. Phasellus laoreet nunc non erat fermentum, id
-    tincidunt eros blandit. Proin in leo porta, placerat justo quis, placerat arcu. Duis non erat ac leo venenatis
-    viverra. In porta pellentesque turpis, a imperdiet erat aliquet id. Proin nec maximus ligula, nec condimentum orci.
-    Ut arcu quam, condimentum at mauris sed, convallis viverra sem. Aenean ullamcorper non massa a semper. Aenean congue
-    rutrum felis, nec finibus dolor euismod lacinia. Suspendisse a volutpat lectus.
-  </p>
+    <p>
+      Curabitur non sapien vestibulum, feugiat nunc quis, lobortis lorem. Proin risus lacus, pulvinar sed dapibus id,
+      vehicula sed justo. In hac habitasse platea dictumst. Duis neque dolor, ultricies sit amet auctor in, sodales
+      vitae
+      sem. Phasellus dignissim dui eget lacus tristique suscipit. Pellentesque habitant morbi tristique senectus et
+      netus
+      et malesuada fames ac turpis egestas. Morbi viverra egestas porta. Phasellus laoreet nunc non erat fermentum, id
+      tincidunt eros blandit. Proin in leo porta, placerat justo quis, placerat arcu. Duis non erat ac leo venenatis
+      viverra. In porta pellentesque turpis, a imperdiet erat aliquet id. Proin nec maximus ligula, nec condimentum
+      orci.
+      Ut arcu quam, condimentum at mauris sed, convallis viverra sem. Aenean ullamcorper non massa a semper. Aenean
+      congue
+      rutrum felis, nec finibus dolor euismod lacinia. Suspendisse a volutpat lectus.
+    </p>
+  </div>
 </div>
 
 <div id="right_side">
 
-  <div id="login">
+  <div class="user_interact">
 
     <h2>Login</h2>
 
@@ -47,8 +53,9 @@
         <input class="submition" id="Password" placeholder="Password" type="password" style="margin-top: 10px;" name="password"/>
 
         <div>
-          <input id="Checkbox" placeholder="Checkbox" type="checkbox" value="1" style="float: left; margin: auto;" name="remeber_me"/>
-          <p style="font-size: small; width: 100px; margin-left: 10px;">Remeber me?</p>
+          <input id="Checkbox" placeholder="Checkbox" type="checkbox" value="1" style="float: left; margin: auto 5px auto auto;" name="remeber_me"/>
+
+          <p style="font-size: small; width: 110px; margin-left: 10px;">Remember me?</p>
         </div>
         <button type="submit">Submit</button>
 
@@ -58,7 +65,7 @@
 
   </div>
 
-  <div id="signup">
+  <div class="user_interact">
 
     <h2>Sign Up</h2>
 
@@ -72,6 +79,11 @@
 
   </div>
 
+</div>
+
+<div id="login-footer">
+  <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
+    <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
 </div>
 
 </body>
