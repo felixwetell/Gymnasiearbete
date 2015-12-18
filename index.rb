@@ -57,6 +57,12 @@ DataMapper.finalize
 
 enable :sessions
 
+#Checking if authorized use:
+# unless authorized?
+#   halt(401, 'Unauthorized')
+# end
+#For private pages
+
 helpers do
   def authorized?
     if session[:username] != nil
