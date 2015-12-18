@@ -90,6 +90,8 @@
   <button type="submit">submit</button>
 </form>
 
+<div>
+
 <h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
 
 <table id="calendar_table">
@@ -113,10 +115,11 @@
     <td class="table_data"></td>
     <td class="table_data"></td>
   </tr>
+</table>
+</div>
 
-  <div id="more_info_placeholder">
-
-
+<div id="more_info_placeholder">
+  <img id="svg_pil" src="../img/meow.svg" style="width: 50px;"/>
 
 
 
