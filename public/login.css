@@ -1,17 +1,27 @@
-body {
+body, html {
     background-color: white;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative;
-    background-image: url('/img/yosemite.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
     overflow-x: hidden;
 }
+
 
 p, a, h1, h2, h3, h4, h5, h6 {
     text-decoration-color: black;
     font-family: Arial, sans-serif;
+}
+
+#main_div {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    background-image: url('/img/yosemite.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-x: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: 100%;
 }
 
 a:-webkit-any-link {
@@ -53,7 +63,8 @@ a:-webkit-any-link {
     padding: 30px;
     border-radius: 10px;
     opacity: 0.92;
-    background-color: #e8e8e8;
+    background-color: white;
+    box-shadow: 2px 2px 4px gray;
 }
 
 #right_side {
@@ -69,8 +80,9 @@ a:-webkit-any-link {
     padding: 10px 30px;
     margin: 40px 50px 50px 200px;
     border-radius: 5px;
-    background-color: grey;
+    background-color: white;
     opacity: 0.95;
+    box-shadow: 2px 2px 4px gray;
 }
 
 .submition{
@@ -78,22 +90,23 @@ a:-webkit-any-link {
     height: 25px;
     font-size: larger;
     opacity: 1 !important;
+    border-radius: 5px;
 }
 
-#login-footer {
-    width: 100%;
+#login_footer {
+    left: 5%;
     height: 50px;
-    text-align: center;
+    text-align: left;
     font-size: medium;
-    position: fixed;
+    position: absolute;
     bottom: 0;
 }
 
-#login-footer p {
-    color: black;
+#login_footer p {
+    color: white;
 }
 
-#login-footer a {
+#login_footer a {
     color: #00ffee;
 }
 
