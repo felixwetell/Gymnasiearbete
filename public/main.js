@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 function dateR(wday) {
     var day = "";
     switch (wday) {
@@ -28,4 +25,4 @@ function dateR(wday) {
     }
     return day
 }
->>>>>>> 38e9819b1b3334f1969f58b22044c918bb558be7
+
