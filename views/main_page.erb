@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="<%= url('style.css') %>"/>
+  <link rel="stylesheet" type="text/css" href="<%= url('main_page.css') %>"/>
   <script type="text/javascript" src="<%= url('main.js') %>"></script>
   <title></title>
 </head>
@@ -98,12 +98,12 @@
 
   <tr class="table_row">
     <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script></td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> <%= Date.today.day + 1 %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> <%= Date.today + 2 %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> <%= Date.today + 3 %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> <%= Date.today + 4 %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> <%= Date.today + 5 %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> <%= Date.today + 6 %> </td>
   </tr>
 
   <tr>
