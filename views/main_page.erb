@@ -87,7 +87,7 @@
   <input type="checkbox" name="box2" value="TopRope">TopRope
   <input type="checkbox" name="box3" value="Lead">Lead
 
-  <button type="submit">submit</button>
+  <button type="submit">Submit</button>
 </form>
 
 <div>
@@ -97,13 +97,13 @@
 <table id="calendar_table">
 
   <tr class="table_row">
-    <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> <%= Date.today.day + 1 %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> <%= Date.today + 2 %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> <%= Date.today + 3 %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> <%= Date.today + 4 %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> <%= Date.today + 5 %> </td>
-    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> <%= Date.today + 6 %> </td>
+    <td class="table_data_day" style="background-color: red;"> <b><script> document.write(dateR(<%= (Date.today).wday %>)) </script></b> <%= "#{Date.today.day}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 1).wday %>)) </script> <%= "#{Date.today.day + 1}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 2).wday %>)) </script> <%= "#{Date.today.day + 2}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 3).wday %>)) </script> <%= "#{Date.today.day + 3}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 4).wday %>)) </script> <%= "#{Date.today.day + 4}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 5).wday %>)) </script> <%= "#{Date.today.day + 5}/#{Date.today.month}" %> </td>
+    <td class="table_data_day"> <script> document.write(dateR(<%= (Date.today + 6).wday %>)) </script> <%= "#{Date.today.day + 6}/#{Date.today.month}" %> </td>
   </tr>
 
   <tr>
