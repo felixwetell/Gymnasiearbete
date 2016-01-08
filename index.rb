@@ -13,7 +13,7 @@ require 'sinatra/reloader'
 set :port, 4568
 
 DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
-#DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
+# DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
 set :public_folder, 'public'
 set :session_secret, '(S(o5s3t2552qerbw45p03fc055))/MZD'
@@ -187,4 +187,8 @@ end
 
 get '*/signup' do
   erb :signup
+end
+
+get '*/about' do
+  erb :about
 end

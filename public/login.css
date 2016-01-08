@@ -1,8 +1,9 @@
 body, html {
     background-color: white;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow-x: hidden;
 }
-
 
 p, a, h1, h2, h3, h4, h5, h6 {
     text-decoration-color: black;
@@ -33,8 +34,12 @@ a:-webkit-any-link {
     width: 110%;
     height: 50px;
     margin: 0 0 50px;
-    background-color: #333333;
+    background-color: #555555;
     position: relative;
+}
+
+#navigator a :hover {
+    color: #969696;
 }
 
 .navigator img {
