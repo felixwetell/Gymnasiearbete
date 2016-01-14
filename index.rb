@@ -3,8 +3,11 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
+<<<<<<< HEAD
+=======
+#require 'dm-postgres-adapter'
+>>>>>>> origin/master
 require 'dm-sqlite-adapter'
-# require 'dm-postgres-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
 
@@ -16,6 +19,8 @@ DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 # DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
 set :public_folder, 'public'
+set :session_secret, '(S(o5s3t2552qerbw45p03fc055))/MZD'
+
 
 class User
   include DataMapper::Resource
@@ -168,12 +173,17 @@ end
 post '/events' do
   box_option = ""
   i = 1
+  unless params["box3"] == "No"
   while i < 4
     unless params["box#{i}"] == nil
       box_option = box_option + params["box#{i}"] + " "
     end
     i += 1
   end
+  else
+    box_option = "No"
+end
+
   Events.create(
       user: session['username'],
       event_time_from: params['event_time_from'],
