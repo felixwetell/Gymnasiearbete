@@ -170,12 +170,17 @@ end
 post '/events' do
   box_option = ""
   i = 1
+  unless params["box3"] == "No"
   while i < 4
     unless params["box#{i}"] == nil
       box_option = box_option + params["box#{i}"] + " "
     end
     i += 1
   end
+  else
+    box_option = "No"
+end
+
   Events.create(
       user: session['username'],
       event_time_from: params['event_time_from'],
