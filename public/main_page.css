@@ -17,15 +17,13 @@ a:-webkit-any-link {
 }
 
 #calendar_table {
-    width: auto;
-    height: auto;
-    margin: 10px auto 20px;
     padding: 10px;
+    margin: 0 auto;
 }
 
 .table_row {
     width: auto;
-    height: auto;
+    height: 10px;
     text-align: center;
 }
 
@@ -47,7 +45,7 @@ a:-webkit-any-link {
     padding: 50px;
     border-radius: 20px;
     overflow-y: scroll;
-    background-color: #e8e8e8;
+    background-color: lightgray;
 }
 
 .event_info {
@@ -60,4 +58,15 @@ a:-webkit-any-link {
     background-color: grey;
 }
 
+#main_div {
+    width: 1200px;
+    height: 600px;
+    background-color: #666666;
+    margin: 0 auto 50px;
+    border-radius: 5px;
+}
+
+#svg_arrow {
+    margin-left: 78px;
+}
 

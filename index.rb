@@ -3,10 +3,7 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-<<<<<<< HEAD
-=======
 #require 'dm-postgres-adapter'
->>>>>>> origin/master
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'

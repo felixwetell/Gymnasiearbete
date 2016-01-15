@@ -90,9 +90,9 @@
   <button type="submit">Submit</button>
 </form>
 
-<div>
+<div id="main_div">
 
-  <h1 style="text-align: center;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
+  <h1 style="text-align: center; padding-top: 10px;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
 
   <table id="calendar_table">
 
@@ -120,56 +120,50 @@
       </td>
     </tr>
 
+    <script>
+      function change(day){
+        document.getElementById("svg_arrow").style.marginLeft=`${day}px`;
+      }
+    </script>
+
     <tr>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
-      <td class="table_data"></td>
+      <td class="table_data" onclick="change(78)"></td>
+      <td class="table_data" onclick="change(234)"></td>
+      <td class="table_data" onclick="change(390)"></td>
+      <td class="table_data" onclick="change(548)"></td>
+      <td class="table_data" onclick="change(700)"></td>
+      <td class="table_data" onclick="change(856)"></td>
+      <td class="table_data" onclick="change(1015)"></td>
     </tr>
   </table>
-</div>
 
-<div id="more_info_placeholder">
+  <img id="svg_arrow" src="../img/meow.svg" style="width: 100px; height: 40px;"/>
 
-  <img id="svg_pil" src="../img/meow.svg" style="width: 50px; height: 20px;"/>
+  <div id="more_info_placeholder">
 
   <div id="more_info_box">
     <div class="event_info">
       <h3>What:</h3>
-
       <p></p>
-
       <h3>When:</h3>
-
       <p></p>
-
       <h3>Comment:</h3>
-
       <p></p>
     </div>
-
     <div class="event_info">
       <h3>What:</h3>
-
       <p></p>
-
       <h3>When:</h3>
-
       <p></p>
-
       <h3>Comment:</h3>
-
       <p></p>
     </div>
 
   </div>
+</div>
 
 
 </div>
-
 
 </body>
 </html>
