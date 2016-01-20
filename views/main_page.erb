@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <div id="main_div">
 
   <h1 style="text-align: center; padding-top: 10px;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
@@ -69,20 +68,24 @@
       <!--Create event: specify other & add location-->
       <form name="events" method="POST" action="/events">
 
-        <script>
 
+        <script>
+          function specify_other(){
+            document.getElementById("specify_other_input").style.display="initial";
+          }
         </script>
 
-        <select name="event_type">
+        <select name="event_type" onchange="specify_other()">
           <option value="Bouldering">Bouldering</option>
           <option value="TopRope">TopRope</option>
           <option value="Lead">Lead</option>
           <option value="Top and Lead">Top and lead</option>
-          <option value="Other">Other</option>
+          <option value="Other" onclick="specify_other()">Other</option>
         </select>
 
+        <input placeholder="Please specify" type="text" id="specify_other_input" style="display: none;">
 
-        <select name="event_time_from">
+        <select name="event_time_from" onchange="specify_other()">
           <option value="09:00">09:00</option>
           <option value="09:30">09:30</option>
           <option value="10:00">10:00</option>
@@ -156,8 +159,6 @@
 
   </div>
 </div>
-
-
 </div>
 
 </body>
