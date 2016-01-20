@@ -67,20 +67,21 @@
       <h3>Create event</h3>
       <!--Create event: specify other & add location-->
       <form name="events" method="POST" action="/events">
-
-
+        
         <script>
-          function specify_other(){
-            document.getElementById("specify_other_input").style.display="initial";
+          function specify_other(value) {
+            if (value == "Other") {
+              document.getElementById("specify_other_input").style.display = "initial";
+            }
           }
         </script>
 
-        <select name="event_type" onchange="specify_other()">
+        <select name="event_type" onchange="specify_other(value)">
           <option value="Bouldering">Bouldering</option>
           <option value="TopRope">TopRope</option>
           <option value="Lead">Lead</option>
           <option value="Top and Lead">Top and lead</option>
-          <option value="Other" onclick="specify_other()">Other</option>
+          <option value="Other">Other</option>
         </select>
 
         <input placeholder="Please specify" type="text" id="specify_other_input" style="display: none;">
