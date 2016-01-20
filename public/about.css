@@ -1,26 +1,21 @@
 body {
-    background-color: white;
     margin: 0 !important;
     padding: 0 !important;
     position: relative;
     overflow-x: hidden;
-    background-image: url('/img/random_detail.jpg');
+    background-color: #666666;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
-    color: cornflowerblue;
+    color: black;
     font-family: Arial, sans-serif;
 }
 
 a:-webkit-any-link {
-    color: white;
+    color: black;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 #navigator {
@@ -49,10 +44,11 @@ a:hover {
 }
 
 #intro {
-    height: 300px;
-    width: 900px;
+    height: 500px;
+    width: 1000px;
     margin: auto;
     position: relative;
+    background-color: #555555;
 }
 
 #intro h1, h2 {
@@ -65,10 +61,24 @@ a:hover {
     cursor: pointer;
 }
 
-#intro_text {
-    width: 800px;
-    height: auto;
-    margin: 0 auto;
+.faq_box_expand {
+    width: 400px;
+    height: 50px;
+    margin: 30px 50px;
+    background-color: cyan;
+    float: left;
+    position: relative;
+}
+
+.faq_box_expand h3 {
+    margin: 14px 10px;
+    float: left;
+    width: auto;
+}
+
+.faq_box_expand img {
+    float: right;
+    position: relative;
 }
 
 #login_footer {
@@ -76,10 +86,14 @@ a:hover {
     height: 50px;
     text-align: left;
     font-size: medium;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
-#login_footer a {
-    color: grey;
+#login_footer p {
+    color: white;
+}
+
+#login_footer a:hover {
+    color: #00ffee;
 }
