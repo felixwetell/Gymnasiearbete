@@ -67,11 +67,14 @@
       <h3>Create event</h3>
       <!--Create event: specify other & add location-->
       <form name="events" method="POST" action="/events">
-        
+
         <script>
           function specify_other(value) {
             if (value == "Other") {
               document.getElementById("specify_other_input").style.display = "initial";
+            }
+            else {
+              document.getElementById("specify_other_input").style.display = "none";
             }
           }
         </script>
