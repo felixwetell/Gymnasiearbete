@@ -69,18 +69,18 @@
       <form name="events" method="POST" action="/events">
 
         <script>
-          function specify_other(value) {
+          function specify_other(value, field) {
             if (value == "Other") {
-              document.getElementById("specify_other_input").style.display = "initial";
+              document.getElementById(field).style.display = "initial";
             }
             else {
-              document.getElementById("specify_other_input").style.display = "none";
+              document.getElementById(field).style.display = "none";
             }
           }
         </script>
-        
 
-        <select name="event_type" onchange="specify_other(value)">
+
+        <select name="event_type" onchange="specify_other(value, 'specify_other_event')">
           <option value="Bouldering">Bouldering</option>
           <option value="TopRope">TopRope</option>
           <option value="Lead">Lead</option>
@@ -88,7 +88,7 @@
           <option value="Other">Other</option>
         </select>
 
-        <input placeholder="Please specify" type="text" id="specify_other_input" style="display: none;">
+        <input placeholder="Please specify" type="text" id="specify_other_event" style="display: none;">
 
         <select name="event_time_from" onchange="specify_other()">
           <option value="09:00">09:00</option>
@@ -151,6 +151,15 @@
           <option value="22:00">22:00</option>
           <option value="N/A">N/A</option>
         </select>
+
+        <select name="location" onchange="specify_other(value, 'specify_other_location')">
+          <option value="Telefonplan">Telefonplan</option>
+          <option value="Solna">Solna</option>
+          <option value="Uppsala">Uppsala</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <input placeholder="Please specify" type="text" id="specify_other_location" style="display: none;">
 
         <p>Time change possible?</p>
 
