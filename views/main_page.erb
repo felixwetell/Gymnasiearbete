@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <div id="main_div">
 
   <h1 style="text-align: center; padding-top: 10px;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
@@ -69,7 +68,19 @@
       <!--Create event: specify other & add location-->
       <form name="events" method="POST" action="/events">
 
-        <select name="event_type">
+        <script>
+          function specify_other(value, field) {
+            if (value == "Other") {
+              document.getElementById(field).style.display = "initial";
+            }
+            else {
+              document.getElementById(field).style.display = "none";
+            }
+          }
+        </script>
+
+
+        <select name="event_type" onchange="specify_other(value, 'specify_other_event')">
           <option value="Bouldering">Bouldering</option>
           <option value="TopRope">TopRope</option>
           <option value="Lead">Lead</option>
@@ -77,8 +88,9 @@
           <option value="Other">Other</option>
         </select>
 
+        <input placeholder="Please specify" type="text" id="specify_other_event" style="display: none;">
 
-        <select name="event_time_from">
+        <select name="event_time_from" onchange="specify_other()">
           <option value="09:00">09:00</option>
           <option value="09:30">09:30</option>
           <option value="10:00">10:00</option>
@@ -140,6 +152,15 @@
           <option value="N/A">N/A</option>
         </select>
 
+        <select name="location" onchange="specify_other(value, 'specify_other_location')">
+          <option value="Telefonplan">Telefonplan</option>
+          <option value="Solna">Solna</option>
+          <option value="Uppsala">Uppsala</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <input placeholder="Please specify" type="text" id="specify_other_location" style="display: none;">
+
         <p>Time change possible?</p>
 
         <input type="checkbox" name="box1" value="Start Earlier">Start Earlier
@@ -152,8 +173,6 @@
 
   </div>
 </div>
-
-
 </div>
 
 </body>
