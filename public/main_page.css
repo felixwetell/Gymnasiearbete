@@ -39,16 +39,16 @@ a:-webkit-any-link {
 }
 
 #more_info_box {
-    width: 1000px;
+    width: 1100px;
     height: 400px;
-    margin: 0 auto 0;
-    border-radius: 20px;
+    margin: -3px auto 0;
+    border-radius: 9px;
     overflow-y: scroll;
     background-color: lightgray;
 }
 
 .event_info {
-    width: 450px;
+    width: 500px;
     height: 350px;
     margin: 15px 15px;
     padding: 10px;
