@@ -8,73 +8,97 @@
 
 <body>
 
-<div id="navigator">
+<div id="main_div">
+  <div id="navigator">
 
-  <img src=""/>
+    <img src=""/>
 
-  <a href="/login"><h3 class="navigator-text">Hem</h3></a>
+    <a href="/login"><h3 class="navigator-text">Hem</h3></a>
 
-  <a href="/about"><h3 class="navigator-text">Om oss</h3></a>
-
-</div>
-
-
-<div id="intro">
-  <div id="header">
-    <h1 style="font-size: xx-large">***</h1>
-
-    <h2>We are <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Sandro</a> and
-      <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix</a></h2>
-  </div>
-
-  <div class="faq_box_expand">
-
-    <h3>Vad är ***?</h3>
-    <img src="sdaa">
+    <a href="/about"><h3 class="navigator-text">Om oss</h3></a>
 
   </div>
 
-  <div class="faq_box_expand">
+  <div id="faq_box">
+    <div id="header">
+      <h1 style="font-size: xx-large">***</h1>
 
-    <h3>Vilka är vi?</h3>
-    <img src="sdaa">
+      <h2>We are <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Sandro</a> and
+        <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix</a></h2>
+    </div>
+
+    <script>
+      function expand(){
+        document.getElementById('faq_expand').style.display = 'initial';
+      }
+    </script>
+
+    <div id="faq_left_side">
+
+      <div class="faq_box_expand">
+
+        <h3>Vad är ***?</h3>
+        <img src="sdaa">
+
+        <div id="faq_expand" style="display: none;" onchange="expand()">
+          <h3>Answer:</h3>
+          <p>fseubafoubaevubofqwevaob
+          aefionbefbyeuibveaoubvse
+          vebisvebsvebouvas
+          sveavesabuaevionave
+          </p>
+        </div>
+      </div>
+
+      <div class="faq_box_expand">
+
+        <h3>Vilka är vi?</h3>
+        <img src="sdaa">
+
+      </div>
+
+      <div class="faq_box_expand">
+
+        <h3>Vad är ***?</h3>
+        <img src="sdaa">
+
+      </div>
+
+    </div>
+
+    <div id="faq_right_side">
+
+      <div class="faq_box_expand">
+
+        <h3>Vilka är vi?</h3>
+        <img src="sdaa">
+
+      </div>
+
+      <div class="faq_box_expand">
+
+        <h3>Vad är ***?</h3>
+        <img src="sdaa">
+
+      </div>
+
+      <div class="faq_box_expand">
+
+        <h3>Vilka är vi?</h3>
+        <img src="sdaa">
+
+      </div>
+
+    </div>
 
   </div>
 
-  <div class="faq_box_expand">
 
-    <h3>Vad är ***?</h3>
-    <img src="sdaa">
-
+  <div id="login_footer">
+    <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
+      <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
   </div>
 
-  <div class="faq_box_expand">
-
-    <h3>Vilka är vi?</h3>
-    <img src="sdaa">
-
-  </div>
-
-  <div class="faq_box_expand">
-
-    <h3>Vad är ***?</h3>
-    <img src="sdaa">
-
-  </div>
-
-  <div class="faq_box_expand">
-
-    <h3>Vilka är vi?</h3>
-    <img src="sdaa">
-
-  </div>
-
-
-</div>
-
-<div id="login_footer">
-  <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
-    <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
 </div>
 
 </body>
