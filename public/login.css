@@ -124,23 +124,3 @@ a:hover {
 #login_footer a {
     color: #00ffee;
 }
-
-#calendar_table {
-    width: auto;
-    height: auto;
-    margin: 10px auto 20px;
-    padding: 10px;
-}
-
-.table_row {
-    width: auto;
-    height: auto;
-    text-align: center;
-}
-
-.table_data {
-    width: 150px;
-    height: 100px;
-    /*border: 1px solid black;*/
-    margin: 0;
-}

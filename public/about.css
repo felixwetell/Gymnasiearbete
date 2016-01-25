@@ -1,21 +1,37 @@
-body {
+body, html {
+    background-color: white;
     margin: 0 !important;
     padding: 0 !important;
-    position: relative;
     overflow-x: hidden;
-    background-color: #666666;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
-    color: black;
+    text-decoration-color: black;
     font-family: Arial, sans-serif;
+}
+
+#main_div {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    background-image: url('/img/yosemite.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-x: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: 100%;
 }
 
 a:-webkit-any-link {
     color: black;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 #navigator {
@@ -43,30 +59,47 @@ a:-webkit-any-link {
 
 }
 
-#intro {
-    height: 500px;
+#faq_box {
+    height: auto;
     width: 1000px;
-    margin: auto;
+    margin: 0 10%;
     position: relative;
-    background-color: #555555;
+    display: inline-block;
 }
 
-#intro h1, h2 {
-    text-align: center;
+#faq_box h3:hover, img:hover {
+    cursor: pointer;
 }
 
-#intro a:hover {
+#faq_box a:hover {
     color: #00ffee;
     text-decoration: underline;
     cursor: pointer;
 }
 
+#header {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+#faq_left_side {
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+#faq_right_side {
+    width: 50%;
+    float: right;
+    position: relative;
+}
+
 .faq_box_expand {
     width: 400px;
     height: 50px;
-    margin: 30px 50px;
+    margin: 30px auto;
     background-color: cyan;
-    float: left;
     position: relative;
 }
 
@@ -86,7 +119,7 @@ a:-webkit-any-link {
     height: 50px;
     text-align: left;
     font-size: medium;
-    position: relative;
+    position: absolute;
     bottom: 0;
 }
 
@@ -94,6 +127,11 @@ a:-webkit-any-link {
     color: white;
 }
 
+#login_footer a {
+    color: #00ffee;
+}
+
 #login_footer a:hover {
     color: #00ffee;
+    text-decoration: underline;
 }
