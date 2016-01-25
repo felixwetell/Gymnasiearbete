@@ -36,9 +36,10 @@ class Events
 
   property :id                , Serial
   property :event_type        , String
+  property :event_location    , String
   property :event_time_from   , String
   property :event_time_to     , String
-  property :event_switch      , String
+  property :event_time_change , String
   property :user              , String
 end
 
