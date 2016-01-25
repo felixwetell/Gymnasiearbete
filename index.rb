@@ -138,12 +138,16 @@ post '/signup' do
     password_salt = BCrypt::Engine.generate_salt
     password_hash = BCrypt::Engine.hash_secret(params['password'], password_salt)
     username = params['username']
+    if User.first(username: username) == nil
     user = User.create(
         username: username,
         password: password_hash,
         salt: password_salt
     )
     user.save
+    else
+      halt(409, 'Username already exists.')
+    end
     redirect to('/login')
   rescue
     erb :error_500
