@@ -101,7 +101,10 @@ end
 post '/create_event' do
   Events.create(
       event_type: params['event_type'],
-      event_time: params['event_time'],
+      event_time_from: params['event_time_from'],
+      event_time_to: params['event_time_to'],
+      event_location: params['event_location'],
+      event_time_change: params['radio'],
       user: session[:username]
   )
   redirect to('/private')
@@ -172,28 +175,6 @@ post '/add_friend' do
   end
 end
 
-post '/events' do
-  box_option = ""
-  i = 1
-  unless params["box3"] == "No"
-  while i < 4
-    unless params["box#{i}"] == nil
-      box_option = box_option + params["box#{i}"] + " "
-    end
-    i += 1
-  end
-  else
-    box_option = "No"
-end
-
-  Events.create(
-      user: session['username'],
-      event_time_from: params['event_time_from'],
-      event_time_to: params['event_time_to'],
-      event_type: params['event_type'],
-      event_switch: box_option
-  )
-end
 
 get '*/signup' do
   erb :signup
