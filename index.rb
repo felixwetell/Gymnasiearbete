@@ -3,17 +3,17 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-require 'dm-postgres-adapter'
-# require 'dm-sqlite-adapter'
+# require 'dm-postgres-adapter'
+require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
 
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
-
-# DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
-DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
+#
+DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+# DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
 set :public_folder, 'public'
 set :session_secret, '(S(o5s3t2552qerbw45p03fc055))/MZD'
