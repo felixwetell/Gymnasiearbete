@@ -99,15 +99,29 @@ get '*/private' do
 end
 
 post '/create_event' do
+  begin
+  if params['event_type'] == 'Other'
+    event_type = params['specify_other_event']
+  else
+    event_type = params['event_type']
+  end
+  if params['event_location'] == 'Other'
+    event_location = params['specify_other_location']
+  else
+    event_location = params['event_location']
+  end
   Events.create(
-      event_type: params['event_type'],
+      event_type: event_type,
       event_time_from: params['event_time_from'],
       event_time_to: params['event_time_to'],
-      event_location: params['event_location'],
-      event_time_change: params['radio'],
+      event_location: event_location,
+      event_time_change: params['event_time_change'],
       user: session[:username]
   )
   redirect to('/private')
+  rescue
+    erb :error_500
+  end
 end
 
 get '*/login' do
