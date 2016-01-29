@@ -3,7 +3,7 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-#require 'dm-postgres-adapter'
+# require 'dm-postgres-adapter'
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
@@ -11,7 +11,7 @@ require 'sinatra/reloader'
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
-
+#
 DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 # DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
@@ -36,9 +36,10 @@ class Events
 
   property :id                , Serial
   property :event_type        , String
+  property :event_location    , String
   property :event_time_from   , String
   property :event_time_to     , String
-  property :event_switch      , String
+  property :event_time_change , String
   property :user              , String
 end
 
@@ -52,7 +53,7 @@ end
 
 configure :development do
   DataMapper.auto_upgrade!
-  #DataMapper.auto_migrate!
+  # DataMapper.auto_migrate!
 end
 
 DataMapper.finalize
@@ -98,12 +99,29 @@ get '*/private' do
 end
 
 post '/create_event' do
+  begin
+  if params['event_type'] == 'Other'
+    event_type = params['specify_other_event']
+  else
+    event_type = params['event_type']
+  end
+  if params['event_location'] == 'Other'
+    event_location = params['specify_other_location']
+  else
+    event_location = params['event_location']
+  end
   Events.create(
-      event_type: params['event_type'],
-      event_time: params['event_time'],
+      event_type: event_type,
+      event_time_from: params['event_time_from'],
+      event_time_to: params['event_time_to'],
+      event_location: event_location,
+      event_time_change: params['event_time_change'],
       user: session[:username]
   )
   redirect to('/private')
+  rescue
+    erb :error_500
+  end
 end
 
 get '*/login' do
@@ -137,12 +155,16 @@ post '/signup' do
     password_salt = BCrypt::Engine.generate_salt
     password_hash = BCrypt::Engine.hash_secret(params['password'], password_salt)
     username = params['username']
+    if User.first(username: username) == nil
     user = User.create(
         username: username,
         password: password_hash,
         salt: password_salt
     )
     user.save
+    else
+      halt(409, 'Username already exists.')
+    end
     redirect to('/login')
   rescue
     erb :error_500
@@ -167,28 +189,6 @@ post '/add_friend' do
   end
 end
 
-post '/events' do
-  box_option = ""
-  i = 1
-  unless params["box3"] == "No"
-  while i < 4
-    unless params["box#{i}"] == nil
-      box_option = box_option + params["box#{i}"] + " "
-    end
-    i += 1
-  end
-  else
-    box_option = "No"
-end
-
-  Events.create(
-      user: session['username'],
-      event_time_from: params['event_time_from'],
-      event_time_to: params['event_time_to'],
-      event_type: params['event_type'],
-      event_switch: box_option
-  )
-end
 
 get '*/signup' do
   erb :signup

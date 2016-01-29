@@ -64,9 +64,9 @@
         <h3>Events on selected day</h3>
     </div>
     <div class="event_info">
-      <h3>Create event</h3>
+      <h3>event</h3>
       <!--Create event: specify other & add location-->
-      <form name="events" method="POST" action="/events">
+      <form name="create_event" method="POST" action="/create_event">
 
         <script>
           function specify_other(value, field) {
@@ -87,7 +87,7 @@
           <option value="Other">Other</option>
         </select>
 
-        <input placeholder="Please specify" type="text" id="specify_other_event" style="display: none;">
+        <input placeholder="Please specify" type="text" id="specify_other_event" name="specify_other_event" style="display: none;">
 
         <select name="event_time_from" onchange="specify_other()">
           <option value="09:00">09:00</option>
@@ -151,20 +151,20 @@
           <option value="N/A">N/A</option>
         </select>
 
-        <select name="location" onchange="specify_other(value, 'specify_other_location')">
+        <select name="event_location" onchange="specify_other(value, 'specify_other_location')">
           <option value="Telefonplan">Telefonplan</option>
           <option value="Solna">Solna</option>
           <option value="Uppsala">Uppsala</option>
           <option value="Other">Other</option>
         </select>
 
-        <input placeholder="Please specify" type="text" id="specify_other_location" style="display: none;">
+        <input placeholder="Please specify" type="text" id="specify_other_location" name="specify_other_location" style="display: none;">
 
         <p>Time change possible?</p>
 
-        <input type="checkbox" name="box1" value="Start Earlier">Start Earlier
-        <input type="checkbox" name="box2" value="End Later">End Later
-        <input type="checkbox" name="box3" value="No">No
+        <input type="radio" name="event_time_change" value="Start Earlier">Start Earlier
+        <input type="radio" name="event_time_change" value="End Later">End Later
+        <input type="radio" name="event_time_change" value="No">No
 
         <button type="submit">Submit</button>
       </form>
