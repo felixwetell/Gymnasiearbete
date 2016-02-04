@@ -129,17 +129,25 @@ a:hover {
     border-radius: 10px;
     float: left;
     position: relative;
+
 }
 
 #linkDiv h5 {
     width: 150px;
+    height: 30px;
     float: left;
-    margin: 10px 8px;
+    margin: 5px 6px;
+    text-align: center;
     border-bottom: 2px solid grey;
 }
 
 #linkDiv h5 a:hover {
     text-decoration: none;
+}
+
+.linkDiv-tablerow {
+    width: 100%;
+    float: left;
 }
 
 #divLinks {
@@ -159,8 +167,9 @@ a:hover {
     height: 50px;
     text-align: left;
     font-size: medium;
-    position: absolute;
+    position: relative;
     bottom: 0;
+    float: left;
 }
 
 #login_footer p {

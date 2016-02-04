@@ -28,80 +28,6 @@
     </div>
 
     <script>
-      function expand() {
-        if (document.getElementById('faq_expand').style.display == 'none') {
-          document.getElementById('faq_expand').style.display = 'initial';
-        } else {
-          document.getElementById('faq_expand').style.display = 'none';
-
-        }
-
-      }
-
-
-    </script>
-
-    <!--<div id="faq_left_side">-->
-
-    <!--<div class="faq_box_expand" onclick="expand()">-->
-
-    <!--<h3>Vad är ***?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--<div class="faq_expand" id="faq_expand" style="display: none">-->
-    <!--<h3>Answer:</h3>-->
-    <!--<p>fseubafoubaevubofqwevaob-->
-    <!--aefionbefbyeuibveaoubvse-->
-    <!--vebisvebsvebouvas-->
-    <!--sveavesabuaevionave-->
-    <!--</p>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="faq_box_expand">-->
-
-    <!--<h3>Vilka är vi?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--</div>-->
-
-    <!--<div class="faq_box_expand">-->
-
-    <!--<h3>Vad är ***?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--</div>-->
-
-    <!--</div>-->
-
-    <!--<div id="faq_right_side">-->
-
-    <!--<div class="faq_box_expand">-->
-
-    <!--<h3>Vilka är vi?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--</div>-->
-
-    <!--<div class="faq_box_expand">-->
-
-    <!--<h3>Vad är ***?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--</div>-->
-
-    <!--<div class="faq_box_expand">-->
-
-    <!--<h3>Vilka är vi?</h3>-->
-    <!--<img src="sdaa">-->
-
-    <!--</div>-->
-
-    <!--</div>-->
-
-    <!--</div>-->
-
-    <script>
       function showDiv(idInfo) {
         var sel = document.getElementById('divLinks').getElementsByTagName('div');
         for (var i = 0; i < sel.length; i++) {
@@ -121,14 +47,48 @@
       <div>
 
         <div id="linkDiv">
+          <table>
+            <tbody>
 
-          <a href="#" onclick="return showDiv('1')"><h5>Vad är Sched</h5></a>
-          <a href="#" onclick="return showDiv('2')"><h5>Vad är Sched</h5></a>
-          <a href="#" onclick="return showDiv('3')"><h5>Vad är Sched</h5></a>
-          <a href="#" onclick="return showDiv('4')"><h5>Vad är Sched</h5></a>
-          <a href="#" onclick="return showDiv('5')"><h5>Vad är Sched</h5></a>
-          <a href="#" onclick="return showDiv('6')"><h5>Vad är Sched</h5></a>
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('1')"><h5>Vad är Sched?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('2')"><h5>Vilka är vi?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('3')"><h5>Varför gör vi detta?</h5></a></td>
+            </tr>
 
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('4')"><h5>Hur fungerar Sched?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('5')"><h5>Varför ska jag använda Sched?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5>Hur har vi skapat Sched?</h5></a></td>
+            </tr>
+
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('6')"><h5>Hur lägger jag in en aktivitet?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5>Hur tar jag bort en aktivitet?</h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5>Hur lägger jag till en vän?</h5></a></td>
+            </tr>
+
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+            </tr>
+
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+            </tr>
+
+            <tr class="linkDiv-tablerow">
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+              <td><a href="#" onclick="return showDiv('6')"><h5></h5></a></td>
+            </tr>
+
+
+            </tbody>
+          </table>
 
         </div>
 
