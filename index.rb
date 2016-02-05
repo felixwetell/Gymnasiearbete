@@ -37,6 +37,7 @@ class Events
   property :id                , Serial
   property :event_type        , String
   property :event_location    , String
+  property :event_date        , String
   property :event_time_from   , String
   property :event_time_to     , String
   property :event_time_change , String
@@ -89,9 +90,36 @@ get '*/private' do
   unless authorized?
     halt(401, 'Unauthorized')
   end
-  begin
-    @name = User.get(User.first(username: session[:username]).id).username
 
+  begin
+    @name = session[:username]
+    events = []
+    friends_query = Friends.all(user1: @name)
+    friends_query.each do |friend|
+      events << Events.all(user: friend.user2)
+    end
+
+    p "wtddddf"
+    events = events.flatten! # this shit is magic bitch!
+    #Putting all usernames from the events into @usernames_from_events for page display
+
+    @usernames_from_events = []
+    @event_types_from_events = []
+    @event_locations_from_events = []
+    @event_times_from_from_events = []
+    @event_times_to_from_events = []
+    @event_time_changes_from_events = []
+    @event_date_from_events = []
+
+    events.each do |event|
+      @usernames_from_events << event.user
+      @event_types_from_events << event.event_type
+      @event_locations_from_events << event.event_location
+      @event_date_from_events << event.event_date
+      @event_times_from_from_events << event.event_time_from
+      @event_times_to_from_events << event.event_time_to
+      @event_time_changes_from_events << event.event_time_change
+    end
   rescue
     erb :error_500
   end
@@ -112,6 +140,7 @@ post '/create_event' do
   end
   Events.create(
       event_type: event_type,
+      event_date: params['event_date'],
       event_time_from: params['event_time_from'],
       event_time_to: params['event_time_to'],
       event_location: event_location,

@@ -62,6 +62,24 @@
   <div id="more_info_box">
     <div class="event_info">
         <h3>Events on selected day</h3>
+
+        <script>
+            console.log(<%= @usernames_from_events %>);
+            console.log(<%= @event_types_from_events %>);
+            console.log(<%= @event_locations_from_events %>);
+            console.log(<%= @event_times_from_from_events %>);
+            console.log(<%= @event_times_to_from_events %>);
+            console.log(<%= @event_time_changes_from_events %>);
+            console.log(<%= @event_date_from_events %>)
+        </script>
+
+
+
+
+
+
+
+
     </div>
     <div class="event_info">
       <h3>event</h3>
@@ -159,7 +177,7 @@
         </select>
 
         <input placeholder="Please specify" type="text" id="specify_other_location" name="specify_other_location" style="display: none;">
-
+        <input placeholder="Date" type="text" id="event_date" name="event_date">
         <p>Time change possible?</p>
 
         <input type="radio" name="event_time_change" value="Start Earlier">Start Earlier
