@@ -99,7 +99,6 @@ get '*/private' do
       events << Events.all(user: friend.user2)
     end
 
-    p "wtddddf"
     events = events.flatten! # this shit is magic bitch!
     #Putting all usernames from the events into @usernames_from_events for page display
 
