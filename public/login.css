@@ -3,6 +3,7 @@ body, html {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -65,9 +66,9 @@ a:hover {
 }
 
 #left_side {
-    width: 44%;
+    width: 565px;
     height: auto;
-    padding: 3% 3% 100px;
+    padding: 30px 30px 100px;
     float: left;
 }
 
@@ -83,7 +84,7 @@ a:hover {
 }
 
 #right_side {
-    width: 50%;
+    width: 650px;
     height: 500px;
     padding-bottom: 100px;
     float: right;
