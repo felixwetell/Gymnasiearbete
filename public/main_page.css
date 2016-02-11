@@ -3,7 +3,6 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     position: relative;
-    overflow-x: hidden;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -43,24 +42,23 @@ a:-webkit-any-link {
     height: 400px;
     margin: -3px auto 0;
     border-radius: 9px;
-    overflow-y: scroll;
-    background-color: lightgray;
+    overflow-y: hidden;
 }
 
 .event_info {
-    width: 500px;
+    width: 496px;
     height: 350px;
     margin: 15px 15px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     float: left;
-    background-color: grey;
+    background-color: #6C8C22;
+    border: 2px solid black;
 }
 
 #main_div {
     width: 1200px;
-    height: 800px;
-    background-color: #666666;
+    height: 500px;
     margin: 0 auto 50px;
     border-radius: 5px;
 }
