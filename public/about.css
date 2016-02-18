@@ -162,6 +162,15 @@ a:hover {
     position: relative;
 }
 
+#divLinks div {
+    display: none;
+}
+
+#divLinks b {
+    color: #00ffee;
+    text-decoration: underline;
+}
+
 #login_footer {
     left: 5%;
     height: 50px;
