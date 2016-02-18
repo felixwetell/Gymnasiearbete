@@ -15,6 +15,23 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+#main_div {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 0 !important;
+    background-image: url('/img/yosemite.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-x: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: 100%;
+}
+
 #calendar_table {
     padding: 10px;
     margin: 0 auto;
@@ -39,7 +56,7 @@ a:-webkit-any-link {
 
 #more_info_box {
     width: 1100px;
-    height: 400px;
+    height: 450px;
     margin: -3px auto 0;
     border-radius: 9px;
     overflow-y: hidden;
@@ -47,20 +64,21 @@ a:-webkit-any-link {
 
 .event_info {
     width: 496px;
-    height: 350px;
+    height: 300px;
     margin: 15px 15px;
     padding: 10px;
     border-radius: 5px;
     float: left;
     background-color: #6C8C22;
     border: 2px solid black;
+    overflow-y: scroll;
 }
 
-#main_div {
-    width: 1200px;
-    height: 500px;
-    margin: 0 auto 50px;
-    border-radius: 5px;
+.event_info select, input {
+    width: 100px;
+    margin-right: 376px;
+    margin-bottom: 5px;
+    float: left;
 }
 
 #svg_arrow {
