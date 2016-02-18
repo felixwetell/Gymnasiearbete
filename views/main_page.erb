@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="<%= url('main_page.css') %>"/>
   <script type="text/javascript" src="<%= url('main.js') %>"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <title>Sched - Schedule</title>
 </head>
 <body>
@@ -42,7 +43,19 @@
       function change(day){
         document.getElementById("svg_arrow").style.marginLeft=`${day}px`;
       }
-                                                //använd margin px för att ta reda på vilken dag eller onclick values för att filtrera
+      
+      //använd margin px för att ta reda på vilken dag eller onclick values för att filtrera
+
+      $(document).ready(function(){
+      $(function myFunction() {
+        var left = $("#svg_arrow").css("margin-left");
+        console.log(left);
+          $('#svg_arrow').click(myFunction);
+        });
+      });
+
+
+
     </script>
 
     <tr>
