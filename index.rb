@@ -8,6 +8,8 @@ require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
 
+#http://www.learnenough.com/
+
 
 #https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
