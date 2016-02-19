@@ -39,8 +39,8 @@
     </tr>
 
     <script>
-      function change(day){
-        document.getElementById("svg_arrow").style.marginLeft=`${day}px`;
+      function change(day) {
+        document.getElementById("svg_arrow").style.marginLeft = `${day}px`;
       }
     </script>
 
@@ -59,8 +59,8 @@
 
   <div id="more_info_placeholder">
 
-  <div id="more_info_box">
-    <div class="event_info">
+    <div id="more_info_box">
+      <div class="event_info">
         <h3>Events on selected day</h3>
 
         <table id="event_info_table">
@@ -75,166 +75,173 @@
           </tr>
         </table>
 
-      <script>
+        <script>
 
-        var usernames_from_events = <%= @usernames_from_events %>;
-        var event_types_from_events = <%= @event_types_from_events %>;
-        var event_locations_from_events = <%= @event_locations_from_events %>;
-        var event_times_from_from_events = <%= @event_times_from_from_events %>;
-        var event_times_to_from_events = <%= @event_times_to_from_events %>;
-        var event_time_changes_from_events = <%= @event_time_changes_from_events %>;
-        var event_date_from_events = <%= @event_date_from_events %>;
+          var usernames_from_events = <%= @usernames_from_events %>;
+          var event_types_from_events = <%= @event_types_from_events %>;
+          var event_locations_from_events = <%= @event_locations_from_events %>;
+          var event_times_from_from_events = <%= @event_times_from_from_events %>;
+          var event_times_to_from_events = <%= @event_times_to_from_events %>;
+          var event_time_changes_from_events = <%= @event_time_changes_from_events %>;
+          var event_date_from_events = <%= @event_date_from_events %>;
 
-        for (var i = 0; i < usernames_from_events.length; i++) {
+          for (var i = 0; i < usernames_from_events.length; i++) {
 
-          var table_row = document.createElement("tr");       // Creating a table tr
+            var table_row = document.createElement("tr");       // Creating a table tr
 
-          var td_name = document.createElement("td");         // Creating a table td
+            var td_name = document.createElement("td");         // Creating a table td
             td_name.innerHTML = usernames_from_events[i];     // Adding data to the table td
 
-          var td_type = document.createElement("td");
+            var td_type = document.createElement("td");
             td_type.innerHTML = event_types_from_events[i];
             // td_type.className='name';        exempel på classchange
             // td_type.style.margin='10px';     exempel på stylechange
 
-          var td_location = document.createElement("td");
+            var td_location = document.createElement("td");
             td_location.innerHTML = event_locations_from_events[i];
 
-          var td_time_from = document.createElement("td");
+            var td_time_from = document.createElement("td");
             td_time_from.innerHTML = event_times_from_from_events[i];
 
-          var td_time_to = document.createElement("td");
+            var td_time_to = document.createElement("td");
             td_time_to.innerHTML = event_times_to_from_events[i];
 
-          var td_time_change = document.createElement("td");
+            var td_time_change = document.createElement("td");
             td_time_change.innerHTML = event_time_changes_from_events[i];
 
-          var td_date = document.createElement("td");
+            var td_date = document.createElement("td");
             td_date.innerHTML = event_date_from_events[i];
 
 
-          table_row.appendChild(td_name);                     // Adding the td to the tr
-          table_row.appendChild(td_type);
-          table_row.appendChild(td_location);
-          table_row.appendChild(td_time_from);
-          table_row.appendChild(td_time_to);
-          table_row.appendChild(td_time_change);
-          table_row.appendChild(td_date);
-          document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
-        }
-
-      </script>
-
-    </div>
-
-    <div class="event_info">
-      <h3>Event</h3>
-      <form name="create_event" method="POST" action="/create_event">
-
-        <script>
-          function specify_other(value, field) {
-            if (value == "Other") {
-              document.getElementById(field).style.display = "initial";
-            }
-            else {
-              document.getElementById(field).style.display = "none";
-            }
+            table_row.appendChild(td_name);                     // Adding the td to the tr
+            table_row.appendChild(td_type);
+            table_row.appendChild(td_location);
+            table_row.appendChild(td_time_from);
+            table_row.appendChild(td_time_to);
+            table_row.appendChild(td_time_change);
+            table_row.appendChild(td_date);
+            document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
           }
+
         </script>
 
-        <select name="event_type" onchange="specify_other(value, 'specify_other_event')">
-          <option value="Bouldering">Bouldering</option>
-          <option value="TopRope">TopRope</option>
-          <option value="Lead">Lead</option>
-          <option value="Top and Lead">Top and lead</option>
-          <option value="Other">Other</option>
-        </select>
+      </div>
 
-        <input placeholder="Please specify" type="text" id="specify_other_event" name="specify_other_event" style="display: none;">
+      <div class="event_info">
+        <h3>Event</h3>
+        <form name="create_event" method="POST" action="/create_event">
 
-        <select name="event_time_from" onchange="specify_other()">
-          <option value="09:00">09:00</option>
-          <option value="09:30">09:30</option>
-          <option value="10:00">10:00</option>
-          <option value="10:30">10:30</option>
-          <option value="11:00">11:00</option>
-          <option value="11:30">11:30</option>
-          <option value="12:00">12:00</option>
-          <option value="12:30">12:30</option>
-          <option value="13:00">13:00</option>
-          <option value="13:30">13:30</option>
-          <option value="14:00">14:00</option>
-          <option value="14:30">14:30</option>
-          <option value="15:00">15:00</option>
-          <option value="15:30">15:30</option>
-          <option value="16:00">16:00</option>
-          <option value="16:30">16:30</option>
-          <option value="17:00">17:00</option>
-          <option value="17:30">17:30</option>
-          <option value="18:00">18:00</option>
-          <option value="18:30">18:30</option>
-          <option value="19:00">19:00</option>
-          <option value="19:30">19:30</option>
-          <option value="20:00">20:00</option>
-          <option value="20:30">20:30</option>
-          <option value="21:00">21:00</option>
-          <option value="21:30">21:30</option>
-          <option value="22:00">22:00</option>
-          <option value="N/A">N/A</option>
-        </select>
+          <script>
+            function specify_other(value, field) {
+              if (value == "Other") {
+                document.getElementById(field).style.display = "initial";
+              }
+              else {
+                document.getElementById(field).style.display = "none";
+              }
+            }
+          </script>
 
-        <select name="event_time_to">
-          <option value="09:00">09:00</option>
-          <option value="09:30">09:30</option>
-          <option value="10:00">10:00</option>
-          <option value="10:30">10:30</option>
-          <option value="11:00">11:00</option>
-          <option value="11:30">11:30</option>
-          <option value="12:00">12:00</option>
-          <option value="12:30">12:30</option>
-          <option value="13:00">13:00</option>
-          <option value="13:30">13:30</option>
-          <option value="14:00">14:00</option>
-          <option value="14:30">14:30</option>
-          <option value="15:00">15:00</option>
-          <option value="15:30">15:30</option>
-          <option value="16:00">16:00</option>
-          <option value="16:30">16:30</option>
-          <option value="17:00">17:00</option>
-          <option value="17:30">17:30</option>
-          <option value="18:00">18:00</option>
-          <option value="18:30">18:30</option>
-          <option value="19:00">19:00</option>
-          <option value="19:30">19:30</option>
-          <option value="20:00">20:00</option>
-          <option value="20:30">20:30</option>
-          <option value="21:00">21:00</option>
-          <option value="21:30">21:30</option>
-          <option value="22:00">22:00</option>
-          <option value="N/A">N/A</option>
-        </select>
+          <select name="event_type" onchange="specify_other(value, 'specify_other_event')">
+            <option value="Bouldering">Bouldering</option>
+            <option value="TopRope">TopRope</option>
+            <option value="Lead">Lead</option>
+            <option value="Top and Lead">Top and lead</option>
+            <option value="Other">Other</option>
+          </select>
 
-        <select name="event_location" onchange="specify_other(value, 'specify_other_location')">
-          <option value="Telefonplan">Telefonplan</option>
-          <option value="Solna">Solna</option>
-          <option value="Uppsala">Uppsala</option>
-          <option value="Other">Other</option>
-        </select>
+          <input placeholder="Please specify" type="text" id="specify_other_event" name="specify_other_event" style="display: none;">
 
-        <input placeholder="Please specify" type="text" id="specify_other_location" name="specify_other_location" style="display: none;">
-        <input placeholder="Date" type="text" id="event_date" name="event_date">
-        <p>Time change possible?</p>
+          <select name="event_time_from" onchange="specify_other()">
+            <option value="09:00">09:00</option>
+            <option value="09:30">09:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+            <option value="18:30">18:30</option>
+            <option value="19:00">19:00</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+            <option value="N/A">N/A</option>
+          </select>
 
-        <input type="radio" name="event_time_change" value="Start Earlier">Start Earlier
-        <input type="radio" name="event_time_change" value="End Later">End Later
-        <input type="radio" name="event_time_change" value="No">No
+          <select name="event_time_to">
+            <option value="09:00">09:00</option>
+            <option value="09:30">09:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+            <option value="18:30">18:30</option>
+            <option value="19:00">19:00</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+            <option value="N/A">N/A</option>
+          </select>
 
-        <button type="submit">Submit</button>
-      </form>
+          <select name="event_location" onchange="specify_other(value, 'specify_other_location')">
+            <option value="Telefonplan">Telefonplan</option>
+            <option value="Solna">Solna</option>
+            <option value="Uppsala">Uppsala</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input placeholder="Please specify" type="text" id="specify_other_location" name="specify_other_location" style="display: none;">
+          <input placeholder="Date" type="text" id="event_date" name="event_date">
+          <p>Time change possible?</p>
+
+          <input type="radio" name="event_time_change" value="Start Earlier">Start Earlier
+          <input type="radio" name="event_time_change" value="End Later">End Later
+          <input type="radio" name="event_time_change" value="No">No
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
     </div>
-
   </div>
-</div>
+
+  <div id="login_footer">
+    <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
+      <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
+    <p>@ 2016 Sched</p>
+  </div>
+
 </div>
 
 </body>

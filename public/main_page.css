@@ -19,7 +19,6 @@ a:-webkit-any-link {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    border-radius: 5px;
     padding: 0 !important;
     background-image: url('/img/yosemite.jpg');
     background-repeat: no-repeat;
@@ -85,4 +84,21 @@ a:-webkit-any-link {
     margin-left: 78px;
 }
 
+#login_footer {
+    width: 100%;
+    height: 50px;
+    padding: 20px 50px;
+    background-color: #555555;
+    text-align: left;
+    position: relative;
+}
 
+#login_footer p {
+    color: black;
+    font-size: xx-small;
+}
+
+#login_footer a:hover {
+    color: #00ffee;
+    text-decoration: underline;
+}

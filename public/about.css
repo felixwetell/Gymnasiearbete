@@ -172,21 +172,17 @@ a:hover {
 }
 
 #login_footer {
-    left: 5%;
+    width: 100%;
     height: 50px;
+    padding: 20px 50px;
+    background-color: #555555;
     text-align: left;
-    font-size: medium;
     position: relative;
-    bottom: 0;
-    float: left;
 }
 
 #login_footer p {
-    color: white;
-}
-
-#login_footer a {
-    color: #00ffee;
+    color: black;
+    font-size: xx-small;
 }
 
 #login_footer a:hover {

@@ -65,36 +65,29 @@ a:hover {
 
 }
 
-#left_side {
-    width: 565px;
-    height: auto;
-    padding: 30px 30px 100px;
-    float: left;
+#middle_div {
+    width: 1200px;
+    margin: 0 auto 50px;
+    position: relative;
 }
 
 #text_box {
-    width: 460px;
+    width: 400px;
     height: auto;
-    margin: auto;
+    margin: 0 0 0 100px;
     padding: 30px;
     border-radius: 10px;
     opacity: 0.92;
     background-color: white;
+    position: absolute;
     /*box-shadow: 2px 2px 4px gray;*/
-}
-
-#right_side {
-    width: 650px;
-    height: 500px;
-    padding-bottom: 100px;
-    float: right;
 }
 
 .user_interact {
     width: 240px;
     height: 200px;
     padding: 10px 30px;
-    margin: 40px 50px 50px 200px;
+    margin: 50px 0 0 800px;
     border-radius: 5px;
     background-color: white;
     opacity: 0.95;
@@ -110,19 +103,20 @@ a:hover {
 }
 
 #login_footer {
-    left: 5%;
+    width: 100%;
     height: 50px;
+    padding: 20px 50px;
+    background-color: #555555;
     text-align: left;
-    font-size: medium;
     position: relative;
-    bottom: 0;
-    float: left;
 }
 
 #login_footer p {
-    color: white;
+    color: black;
+    font-size: xx-small;
 }
 
-#login_footer a {
+#login_footer a:hover {
     color: #00ffee;
+    text-decoration: underline;
 }
