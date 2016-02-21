@@ -28,9 +28,11 @@ function dateR(wday) {
 
 var date = "";
 function filter(date) {
+    $(".generated_tr").remove();
     for (var i = 0; i < usernames_from_events.length; i++) {
         if (date == event_date_from_events[i]) {
-            var table_row = document.createElement("tr");       // Creating a table tr
+            var table_row = document.createElement("tr");// Creating a table tr
+            table_row.className = "generated_tr";        // Adding class name to enable removing the tr
 
             var td_name = document.createElement("td");         // Creating a table td
             td_name.innerHTML = usernames_from_events[i];     // Adding data to the table td
