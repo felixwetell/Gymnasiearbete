@@ -10,6 +10,8 @@
 <body onload="filter(`<%= Date.today.day %>/<%= Date.today.month %>`);">
 
 <script>
+  // Getting the Event Info data from database
+
   var usernames_from_events = <%= @usernames_from_events %>;
   var event_types_from_events = <%= @event_types_from_events %>;
   var event_locations_from_events = <%= @event_locations_from_events %>;
@@ -54,13 +56,15 @@
     <img id="svg_arrow" src="../img/meow.svg"/>
 
     <script>
+      // Moves the svg_arrow when clicking on the "days" on the schedule
+
       var date = "";
 
       function change(day) {
         document.getElementById("svg_arrow").style.marginLeft = `${day}px`;
       }
 
-      //använd margin px för att ta reda på vilken dag eller onclick values för att filtrera
+      // Uses the margin px of the svg_arrow to determine what day it is
 
         function px_to_day() {
           var px = $("#svg_arrow").css("margin-left");
@@ -122,6 +126,9 @@
         <form name="create_event" method="POST" action="/create_event">
 
           <script>
+            // Displaying / hiding the "specify" fields when creating an event
+            // if user has selected "Other" in the dropdown
+
             function specify_other(value, field) {
               if (value == "Other") {
                 document.getElementById(field).style.display = "initial";

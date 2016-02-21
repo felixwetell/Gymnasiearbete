@@ -1,3 +1,5 @@
+// The script below is used to show what weekday it is as a "Swedish String".
+
 function dateR(wday) {
     var day = "";
     switch (wday) {
@@ -26,21 +28,23 @@ function dateR(wday) {
     return day
 }
 
+// The script below is used to create tables on the fly.
+// This allows us to Filter the Event Info content on the fly
+// in order to show the Event Info for the specific selected day.
+
 var date = "";
 function filter(date) {
-    $(".generated_tr").remove();
+    $(".generated_tr").remove(); // Removing the current Event Filter content (all the generated tr and it's children)
     for (var i = 0; i < usernames_from_events.length; i++) {
         if (date == event_date_from_events[i]) {
             var table_row = document.createElement("tr");// Creating a table tr
             table_row.className = "generated_tr";        // Adding class name to enable removing the tr
 
             var td_name = document.createElement("td");         // Creating a table td
-            td_name.innerHTML = usernames_from_events[i];     // Adding data to the table td
+            td_name.innerHTML = usernames_from_events[i];       // Adding data to the table td
 
             var td_type = document.createElement("td");
             td_type.innerHTML = event_types_from_events[i];
-            // td_type.className='name';        exempel på classchange
-            // td_type.style.margin='10px';     exempel på stylechange
 
             var td_location = document.createElement("td");
             td_location.innerHTML = event_locations_from_events[i];
