@@ -9,7 +9,12 @@
 </head>
 <body onload="filter(`<%= Date.today.day %>/<%= Date.today.month %>`);">
 <div id="main_div">
+  <div id="header">
+    <a href="/login"><h3 class="header_text">Home</h3></a>
 
+    <a href="/about"><h3 class="header_text">About Us</h3></a>
+  </div>
+  <div id="content">
 <script>
   // Getting the Event Info data from database
 
@@ -68,32 +73,32 @@
         function px_to_day() {
           var px = $("#svg_arrow").css("margin-left");
           switch (px) {
-            case "38px":
+            case "28px":
               return `<%= Date.today.day %>/<%= Date.today.month %>`;
-            case "187px":
+            case "185px":
               return `<%= Date.today.day + 1%>/<%= Date.today.month %>`;
-            case "340px":
+            case "339px":
               return `<%= Date.today.day + 2%>/<%= Date.today.month %>`;
-            case "498px":
+            case "495px":
               return `<%= Date.today.day + 3%>/<%= Date.today.month %>`;
-            case "648px":
+            case "650px":
               return `<%= Date.today.day + 4%>/<%= Date.today.month %>`;
-            case "800px":
+            case "810px":
               return `<%= Date.today.day + 5%>/<%= Date.today.month %>`;
-            case "955px":
+            case "962px":
               return `<%= Date.today.day + 6%>/<%= Date.today.month %>`;
           }
         }
     </script>
 
     <tr>
-      <td class="table_data" onclick="change(38); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(187); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(340); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(498); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(648); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(800); date = px_to_day(); filter(date);"></td>
-      <td class="table_data" onclick="change(955); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(28); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(185); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(339); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(495); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(650); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(810); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(962); date = px_to_day(); filter(date);"></td>
     </tr>
   </table>
 
@@ -222,11 +227,15 @@
       </div>
     </div>
   </div>
-  <div id="footer">
+
+</div>
+
+  <footer id="footer">
     <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
       <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
     <p>@ 2016 Sched</p>
-  </div>
+  </footer>
+
 </div>
 
 </body>

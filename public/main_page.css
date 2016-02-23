@@ -1,7 +1,41 @@
-body {
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 50px;
     background-color: white;
-    margin: 0 !important;
-    padding: 0 !important;
+    opacity: 0.9;
+    position: relative;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+#header a {
+    opacity: 1 !important;
+}
+
+#header a :hover {
+    color: #00ffee;
+}
+
+.navigator img {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+.header_text {
+    margin: 15px;
+    float: left;
+
+}
+
+#content {
+    padding: 10px;
+    padding-bottom: 50px;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -17,20 +51,18 @@ a:-webkit-any-link {
 #main_div {
     margin: 0 !important;
     padding: 0 !important;
-    position: absolute;
+    min-height: 100%;
+    position: relative;
     background-image: url('/img/yosemite.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    overflow-x: hidden;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 #calendar_table {
-    padding: 10px;
     margin: 0 auto;
+    background-color: whitesmoke;
+    padding: 0;
+    box-shadow: 2px 2px 2px 3px rgba(196, 197, 194, 1);
 }
 
 .table_row {
@@ -40,11 +72,15 @@ a:-webkit-any-link {
 }
 
 .table_data {
-    background-color: white;
+    background-color: whitesmoke;
     width: 150px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     margin: 0;
+}
+
+.table_data_day {
+
 }
 
 #more_info_box {
@@ -58,25 +94,25 @@ a:-webkit-any-link {
 }
 
 #event_info {
-    width: 700px;
+    width: 730px;
     height: 300px;
-    margin: 0 0 0 0;
+    margin: 20px 0 0 -10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #6C8C22;
-    border: 2px solid black;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 2px 2px rgba(196, 197, 194, 1);
     overflow-y: auto;
     position: absolute;
 }
 
 #event_create {
-    width: 300px;
+    width: 280px;
     height: 300px;
-    margin-left: 743px;
+    margin: 20px 0 0 779px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #6C8C22;
-    border: 2px solid black;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 2px 2px rgba(196, 197, 194, 1);
     overflow-y: auto;
     position: absolute;
 }
@@ -91,15 +127,19 @@ a:-webkit-any-link {
 #svg_arrow {
     width: 100px;
     height: 40px;
-    margin-left: 38px;
+    margin-left: 28px;
     margin-top: 160px;
     position: absolute;
 }
 
 #sched_placeholder_div {
-    height: 270px;
+    height: 690px;
     width: 1090px;
-    margin: auto;
+    padding: 20px 70px 0 70px;
+    margin: 50px auto 200px auto;
+    background-color: white;
+    box-shadow: 1px 1px 2px 2px gray;
+    border-radius: 5px;
 }
 
 #footer {
@@ -115,7 +155,7 @@ a:-webkit-any-link {
 #footer p {
     margin-left: 50px;
     color: black;
-    font-size: xx-small;
+    font-size: x-small;
 }
 
 #footer a:hover {
