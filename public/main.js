@@ -58,8 +58,8 @@ function filter(date) {
             var td_time_change = document.createElement("td");
             td_time_change.innerHTML = event_time_changes_from_events[i];
 
-            var td_date = document.createElement("td");
-            td_date.innerHTML = event_date_from_events[i];
+            //var td_date = document.createElement("td");
+            //td_date.innerHTML = event_date_from_events[i];
 
             table_row.appendChild(td_name);                     // Adding the td to the tr
             table_row.appendChild(td_type);
@@ -67,7 +67,7 @@ function filter(date) {
             table_row.appendChild(td_time_from);
             table_row.appendChild(td_time_to);
             table_row.appendChild(td_time_change);
-            table_row.appendChild(td_date);
+            //table_row.appendChild(td_date);
             document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
         }
     }

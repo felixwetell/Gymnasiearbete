@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="<%= url('main_page.css') %>"/>
@@ -8,6 +8,7 @@
   <title>Sched - Schedule</title>
 </head>
 <body onload="filter(`<%= Date.today.day %>/<%= Date.today.month %>`);">
+<div id="main_div">
 
 <script>
   // Getting the Event Info data from database
@@ -20,8 +21,6 @@
   var event_time_changes_from_events = <%= @event_time_changes_from_events %>;
   var event_date_from_events = <%= @event_date_from_events %>;
 </script>
-
-<div id="main_div">
 
   <div id="sched_placeholder_div">
 
@@ -97,27 +96,23 @@
       <td class="table_data" onclick="change(955); date = px_to_day(); filter(date);"></td>
     </tr>
   </table>
-    </div>
-  <div id="more_info_placeholder">
 
     <div id="more_info_box">
-      <div class="event_info">
+      <div id="event_info" class="event_info">
         <h3>Events on selected day</h3>
 
         <table id="event_info_table">
           <tr>
-            <td>User</td>
-            <td>Type</td>
-            <td>Location</td>
-            <td>Start Time</td>
-            <td>Ending time</td>
-            <td>Time change possible?</td>
-            <td>Date</td>
+            <td><b>|User|</b></td>
+            <td><b>|Type|</b></td>
+            <td><b>|Location|</b></td>
+            <td style="width: 110px;"><b>|Starting Time|</b></td>
+            <td style="width: 110px;"><b>|Ending Time|</b></td>
+            <td style="width: 170px;"><b>|Time Change Possible?|</b></td>
           </tr>
         </table>
     </div>
-      </div>
-      <div class="event_info">
+      <div id="event_create" class="event_info">
         <h3>Event</h3>
         <form name="create_event" method="POST" action="/create_event">
 
@@ -227,13 +222,11 @@
       </div>
     </div>
   </div>
-
   <div id="footer">
     <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
       <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
     <p>@ 2016 Sched</p>
   </div>
-
 </div>
 
 </body>

@@ -2,7 +2,6 @@ body {
     background-color: white;
     margin: 0 !important;
     padding: 0 !important;
-    position: relative;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -16,10 +15,9 @@ a:-webkit-any-link {
 }
 
 #main_div {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
+    margin: 0 !important;
     padding: 0 !important;
+    position: absolute;
     background-image: url('/img/yosemite.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,28 +47,38 @@ a:-webkit-any-link {
     margin: 0;
 }
 
-#more_info_placeholder {
-
-}
-
 #more_info_box {
-    width: 1100px;
-    height: 450px;
-    margin: -3px auto 0;
-    border-radius: 9px;
-    overflow-y: hidden;
+    width: 1067px;
+    height: 324px;
+    margin: 50px auto 0;
 }
 
-.event_info {
-    width: 496px;
+#event_info_table td {
+    width: 90px;
+}
+
+#event_info {
+    width: 700px;
     height: 300px;
-    margin: 0 15px;
+    margin: 0 0 0 0;
     padding: 10px;
     border-radius: 5px;
-    float: left;
     background-color: #6C8C22;
     border: 2px solid black;
-    overflow-y: scroll;
+    overflow-y: auto;
+    position: absolute;
+}
+
+#event_create {
+    width: 300px;
+    height: 300px;
+    margin-left: 743px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #6C8C22;
+    border: 2px solid black;
+    overflow-y: auto;
+    position: absolute;
 }
 
 .event_info select, input {
@@ -91,7 +99,7 @@ a:-webkit-any-link {
 #sched_placeholder_div {
     height: 270px;
     width: 1090px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 #footer {
