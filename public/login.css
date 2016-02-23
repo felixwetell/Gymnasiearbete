@@ -105,7 +105,8 @@ a:hover {
     padding: 20px 0;
     background-color: #555555;
     text-align: left;
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
 #footer p {
