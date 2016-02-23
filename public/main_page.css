@@ -22,13 +22,12 @@ a:-webkit-any-link {
     padding: 0 !important;
     background-image: url('/img/yosemite.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover;
     overflow-x: hidden;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-size: 100%;
 }
 
 #calendar_table {
