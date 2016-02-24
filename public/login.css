@@ -1,7 +1,12 @@
 body, html {
-    background-color: white;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#content {
+    padding: 10px;
+    padding-bottom: 50px;
 }
 
 p, a, h1, h2, h3, h4, h5, h6 {
@@ -12,14 +17,11 @@ p, a, h1, h2, h3, h4, h5, h6 {
 #main_div {
     margin: 0 !important;
     padding: 0 !important;
-    position: absolute;
+    min-height: 100%;
+    position: relative;
     background-image: url('/img/yosemite.jpg');
-    background-position: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 a:-webkit-any-link {
@@ -32,21 +34,21 @@ a:hover {
 }
 
 
-#navigator {
+#header {
     width: 100%;
     height: 50px;
     margin: 0 0 50px;
     background-color: white;
     opacity: 0.9;
     position: relative;
-    overflow-x: hidden;
+    box-shadow: 1px 1px 1px 1px gray;
 }
 
-#navigator a {
+#header a {
     opacity: 1 !important;
 }
 
-#navigator a :hover {
+#header a :hover {
     color: #00ffee;
 }
 
@@ -56,7 +58,7 @@ a:hover {
     float: left;
 }
 
-.navigator-text {
+.header_text {
     margin: 15px;
     float: left;
 
@@ -77,7 +79,7 @@ a:hover {
     opacity: 0.92;
     background-color: white;
     position: absolute;
-    /*box-shadow: 2px 2px 4px gray;*/
+    box-shadow: 1px 1px 2px 2px gray;
 }
 
 .user_interact {
@@ -88,7 +90,7 @@ a:hover {
     border-radius: 5px;
     background-color: white;
     opacity: 0.95;
-    /*box-shadow: 2px 2px 4px gray;*/
+    box-shadow: 1px 1px 2px 2px gray;
 }
 
 .submition{
@@ -105,14 +107,15 @@ a:hover {
     padding: 20px 0;
     background-color: #555555;
     text-align: left;
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
 #footer p {
     margin-left: 50px;
     line-height: 10px;
     color: black;
-    font-size: xx-small;
+    font-size: x-small;
 }
 
 #footer a:hover {

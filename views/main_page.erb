@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="<%= url('main_page.css') %>"/>
@@ -7,9 +7,27 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <title>Sched - Schedule</title>
 </head>
-<body>
-
+<body onload="filter(`<%= Date.today.day %>/<%= Date.today.month %>`);">
 <div id="main_div">
+  <div id="header">
+    <a href="/login"><h3 class="header_text">Home</h3></a>
+
+    <a href="/about"><h3 class="header_text">About Us</h3></a>
+  </div>
+  <div id="content">
+<script>
+  // Getting the Event Info data from database
+
+  var usernames_from_events = <%= @usernames_from_events %>;
+  var event_types_from_events = <%= @event_types_from_events %>;
+  var event_locations_from_events = <%= @event_locations_from_events %>;
+  var event_times_from_from_events = <%= @event_times_from_from_events %>;
+  var event_times_to_from_events = <%= @event_times_to_from_events %>;
+  var event_time_changes_from_events = <%= @event_time_changes_from_events %>;
+  var event_date_from_events = <%= @event_date_from_events %>;
+</script>
+
+  <div id="sched_placeholder_div">
 
   <h1 style="text-align: center; padding-top: 10px;">Current week: <%= Time.now.strftime("%U").to_i %></h1>
 
@@ -39,113 +57,74 @@
       </td>
     </tr>
 
+    <img id="svg_arrow" src="../img/meow.svg"/>
+
     <script>
+      // Moves the svg_arrow when clicking on the "days" on the schedule
+
+      var date = "";
+
       function change(day) {
         document.getElementById("svg_arrow").style.marginLeft = `${day}px`;
       }
-      
-      //använd margin px för att ta reda på vilken dag eller onclick values för att filtrera
 
-      $(document).ready(function(){
-      $(function myFunction() {
-        var left = $("#svg_arrow").css("margin-left");
-        console.log(left);
-          $('#svg_arrow').click(myFunction);
-        });
-      });
+      // Uses the margin px of the svg_arrow to determine what day it is
 
-
-
+        function px_to_day() {
+          var px = $("#svg_arrow").css("margin-left");
+          switch (px) {
+            case "28px":
+              return `<%= Date.today.day %>/<%= Date.today.month %>`;
+            case "185px":
+              return `<%= Date.today.day + 1%>/<%= Date.today.month %>`;
+            case "339px":
+              return `<%= Date.today.day + 2%>/<%= Date.today.month %>`;
+            case "495px":
+              return `<%= Date.today.day + 3%>/<%= Date.today.month %>`;
+            case "650px":
+              return `<%= Date.today.day + 4%>/<%= Date.today.month %>`;
+            case "810px":
+              return `<%= Date.today.day + 5%>/<%= Date.today.month %>`;
+            case "962px":
+              return `<%= Date.today.day + 6%>/<%= Date.today.month %>`;
+          }
+        }
     </script>
 
     <tr>
-      <td class="table_data" onclick="change(78)"></td>
-      <td class="table_data" onclick="change(234)"></td>
-      <td class="table_data" onclick="change(390)"></td>
-      <td class="table_data" onclick="change(548)"></td>
-      <td class="table_data" onclick="change(700)"></td>
-      <td class="table_data" onclick="change(856)"></td>
-      <td class="table_data" onclick="change(1015)"></td>
+      <td class="table_data" onclick="change(28); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(185); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(339); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(495); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(650); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(810); date = px_to_day(); filter(date);"></td>
+      <td class="table_data" onclick="change(962); date = px_to_day(); filter(date);"></td>
     </tr>
   </table>
 
-  <img id="svg_arrow" src="../img/meow.svg" style="width: 100px; height: 40px;"/>
-
-  <div id="more_info_placeholder">
-
     <div id="more_info_box">
-      <div class="event_info">
+      <div id="event_info" class="event_info">
         <h3>Events on selected day</h3>
 
         <table id="event_info_table">
           <tr>
-            <td>User</td>
-            <td>Type</td>
-            <td>Location</td>
-            <td>Start Time</td>
-            <td>Ending time</td>
-            <td>Time change possible?</td>
-            <td>Date</td>
+            <td><b>|User|</b></td>
+            <td><b>|Type|</b></td>
+            <td><b>|Location|</b></td>
+            <td style="width: 110px;"><b>|Starting Time|</b></td>
+            <td style="width: 110px;"><b>|Ending Time|</b></td>
+            <td style="width: 170px;"><b>|Time Change Possible?|</b></td>
           </tr>
         </table>
-
-        <script>
-
-          var usernames_from_events = <%= @usernames_from_events %>;
-          var event_types_from_events = <%= @event_types_from_events %>;
-          var event_locations_from_events = <%= @event_locations_from_events %>;
-          var event_times_from_from_events = <%= @event_times_from_from_events %>;
-          var event_times_to_from_events = <%= @event_times_to_from_events %>;
-          var event_time_changes_from_events = <%= @event_time_changes_from_events %>;
-          var event_date_from_events = <%= @event_date_from_events %>;
-
-          for (var i = 0; i < usernames_from_events.length; i++) {
-
-            var table_row = document.createElement("tr");       // Creating a table tr
-
-            var td_name = document.createElement("td");         // Creating a table td
-            td_name.innerHTML = usernames_from_events[i];     // Adding data to the table td
-
-            var td_type = document.createElement("td");
-            td_type.innerHTML = event_types_from_events[i];
-            // td_type.className='name';        exempel på classchange
-            // td_type.style.margin='10px';     exempel på stylechange
-
-            var td_location = document.createElement("td");
-            td_location.innerHTML = event_locations_from_events[i];
-
-            var td_time_from = document.createElement("td");
-            td_time_from.innerHTML = event_times_from_from_events[i];
-
-            var td_time_to = document.createElement("td");
-            td_time_to.innerHTML = event_times_to_from_events[i];
-
-            var td_time_change = document.createElement("td");
-            td_time_change.innerHTML = event_time_changes_from_events[i];
-
-            var td_date = document.createElement("td");
-            td_date.innerHTML = event_date_from_events[i];
-
-
-            table_row.appendChild(td_name);                     // Adding the td to the tr
-            table_row.appendChild(td_type);
-            table_row.appendChild(td_location);
-            table_row.appendChild(td_time_from);
-            table_row.appendChild(td_time_to);
-            table_row.appendChild(td_time_change);
-            table_row.appendChild(td_date);
-            document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
-          }
-
-        </script>
-
-      </div>
-
-      <div class="event_info">
+    </div>
+      <div id="event_create" class="event_info">
         <h3>Event</h3>
         <form name="create_event" method="POST" action="/create_event">
 
           <script>
+            // Displaying / hiding the "specify" fields when creating an event
+            // if user has selected "Other" in the dropdown
+
             function specify_other(value, field) {
               if (value == "Other") {
                 document.getElementById(field).style.display = "initial";
@@ -246,15 +225,16 @@
           <button type="submit">Submit</button>
         </form>
       </div>
-
     </div>
   </div>
 
-  <div id="footer">
+</div>
+
+  <footer id="footer">
     <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
       <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
     <p>@ 2016 Sched</p>
-  </div>
+  </footer>
 
 </div>
 
