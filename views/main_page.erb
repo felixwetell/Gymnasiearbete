@@ -136,6 +136,7 @@
           </script>
 
           <select name="event_type" onchange="specify_other(value, 'specify_other_event')">
+            <option>Type</option>
             <option value="Bouldering">Bouldering</option>
             <option value="TopRope">TopRope</option>
             <option value="Lead">Lead</option>
@@ -146,6 +147,7 @@
           <input placeholder="Please specify" type="text" id="specify_other_event" name="specify_other_event" style="display: none;">
 
           <select name="event_time_from" onchange="specify_other()">
+            <option>Starting time</option>
             <option value="09:00">09:00</option>
             <option value="09:30">09:30</option>
             <option value="10:00">10:00</option>
@@ -177,6 +179,7 @@
           </select>
 
           <select name="event_time_to">
+            <option>Ending time</option>
             <option value="09:00">09:00</option>
             <option value="09:30">09:30</option>
             <option value="10:00">10:00</option>
@@ -208,6 +211,7 @@
           </select>
 
           <select name="event_location" onchange="specify_other(value, 'specify_other_location')">
+            <option>Location</option>
             <option value="Telefonplan">Telefonplan</option>
             <option value="Solna">Solna</option>
             <option value="Uppsala">Uppsala</option>
@@ -218,9 +222,8 @@
           <input placeholder="Date" type="text" id="event_date" name="event_date">
           <p>Time change possible?</p>
 
-          <input type="radio" name="event_time_change" value="Start Earlier">Start Earlier
-          <input type="radio" name="event_time_change" value="End Later">End Later
-          <input type="radio" name="event_time_change" value="No">No
+          <input type="radio" name="event_time_change" value="Yes" style="width: 20px; position: absolute;"> <p style="margin-left: 25px;">Yes</p>
+          <input type="radio" name="event_time_change" value="No" style="width: 20px; position: absolute;"> <p style="margin-left: 25px;">No</p>
 
           <button type="submit">Submit</button>
         </form>

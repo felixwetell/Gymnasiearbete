@@ -156,11 +156,14 @@ post '/create_event' do
 end
 
 get '*/login' do
+  # Look up persistent cookies for "Allow cookies thing".
+  #session.clear?
   session[:username] = nil
   erb :login
 end
 
 get '*/logout' do
+  #session.clear?
   session[:username] = nil
   halt(200, 'Successfully logged out!')
 end
