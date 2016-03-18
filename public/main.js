@@ -58,9 +58,6 @@ function filter(date) {
             var td_time_change = document.createElement("td");
             td_time_change.innerHTML = event_time_changes_from_events[i];
 
-            //var td_date = document.createElement("td");
-            //td_date.innerHTML = event_date_from_events[i];
-
             table_row.appendChild(td_name);                     // Adding the td to the tr
             table_row.appendChild(td_type);
             table_row.appendChild(td_location);
@@ -70,5 +67,18 @@ function filter(date) {
             //table_row.appendChild(td_date);
             document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
         }
+    }
+}
+
+function showFriends(friendsArray) {
+    console.log("yep");
+    for (var i = 0; i < friendsArray.length; i++) {
+            var table_row = document.createElement("tr");   // Creating a table tr
+
+            var td_friend = document.createElement("td");     // Creating a table td
+            td_friend.innerHTML = friendsArray[i];            // Adding data to the table td
+
+            table_row.appendChild(td_friend);                 // Adding the td to the tr
+            document.getElementById('friends_div').appendChild(table_row); // Adding the tr to the table
     }
 }

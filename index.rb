@@ -3,19 +3,15 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-#require 'dm-postgres-adapter'
+# require 'dm-postgres-adapter'
 require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
 
-#http://www.learnenough.com/
-
-
-#https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
-#
+
 DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
-#DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
+# DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
 set :public_folder, 'public'
 set :session_secret, '(S(o5s3t2552qerbw45p03fc055))/MZD'
@@ -37,8 +33,8 @@ class Events
   include DataMapper::Resource
 
   property :id                , Serial
-  property :event_type        , String
-  property :event_location    , String
+  property :event_type        , Text
+  property :event_location    , Text
   property :event_date        , String
   property :event_time_from   , String
   property :event_time_to     , String
@@ -88,13 +84,12 @@ not_found do
   erb :error_404
 end
 
-get '*/private' do
+get '*/main_page' do
   unless authorized?
     halt(401, 'Unauthorized')
   end
 
   begin
-
     @name = session[:username]
     events = []
     friends_query = Friends.all(user1: @name)
@@ -102,7 +97,7 @@ get '*/private' do
       events << Events.all(user: friend.user2)
     end
 
-    events = events.flatten! # this shit is magic bitch!
+    events = events.flatten!
     #Putting all usernames from the events into @usernames_from_events for page display
 
     @usernames_from_events = []
@@ -128,6 +123,48 @@ get '*/private' do
   erb :main_page
 end
 
+get '*/friends' do
+  unless authorized?
+    halt(401, 'Unauthorized')
+  end
+  begin
+    @name = session[:username]
+    @friends = []
+    friends_query = Friends.all(user1: @name)
+    friends_query.each do |friend|
+      @friends << friend.user2
+    end
+  rescue
+    erb :error_500
+  end
+  erb :friends
+end
+
+post '/add_friend' do
+  begin
+    if User.first(username: params['add_friend']).username == params['add_friend']
+      @name = session[:username]
+      @friends = []
+      friends_query = Friends.all(user1: @name)
+      friends_query.each do |friend|
+        @friends << friend.user2
+      end
+      if @friends.include?(params['add_friend'])
+        halt(400, "You are already following #{params['add_friend']}. You can't 'SuperStalk' someone")
+      else
+        Friends.create(
+          user1: session[:username],
+          user2: params['add_friend']
+      )
+      halt(200, "Successfully added friend! You're not forever alone atm! :D")
+      end
+    end
+  rescue
+    erb :error_500
+  end
+end
+
+
 post '/create_event' do
   begin
   if params['event_type'] == 'Other'
@@ -149,7 +186,7 @@ post '/create_event' do
       event_time_change: params['event_time_change'],
       user: session[:username]
   )
-  redirect to('/private')
+  redirect to('/main_page')
   rescue
     erb :error_500
   end
@@ -178,7 +215,7 @@ post '/login' do
     else
       halt(401, 'Invalid login')
     end
-    redirect to('/private')
+    redirect to('/main_page')
   rescue
     erb :error_500
   end
@@ -204,25 +241,6 @@ post '/signup' do
     erb :error_500
   end
 end
-
-get '*/add_friend_test' do
-  erb :add_friend_test
-end
-
-post '/add_friend' do
-  begin
-    if User.first(username: params['add_friend']).username == params['add_friend']
-      Friends.create(
-          user1: session[:username],
-          user2: params['add_friend']
-      )
-      halt(200, "Successfully added friend! You're not forever alone atm! :D")
-    end
-  rescue
-    erb :error_500
-  end
-end
-
 
 get '*/signup' do
   erb :signup
