@@ -90,7 +90,6 @@ get '*/main_page' do
   end
 
   begin
-
     @name = session[:username]
     events = []
     friends_query = Friends.all(user1: @name)
@@ -123,6 +122,38 @@ get '*/main_page' do
   end
   erb :main_page
 end
+
+get '*/friends' do
+  unless authorized?
+    halt(401, 'Unauthorized')
+  end
+  begin
+    @name = session[:username]
+    @friends = []
+    friends_query = Friends.all(user1: @name)
+    friends_query.each do |friend|
+      @friends << friend.user2
+    end
+  rescue
+    erb :error_500
+  end
+  erb :friends
+end
+
+post '/add_friend' do
+  begin
+    if User.first(username: params['add_friend']).username == params['add_friend']
+      Friends.create(
+          user1: session[:username],
+          user2: params['add_friend']
+      )
+      halt(200, "Successfully added friend! You're not forever alone atm! :D")
+    end
+  rescue
+    erb :error_500
+  end
+end
+
 
 post '/create_event' do
   begin
@@ -200,25 +231,6 @@ post '/signup' do
     erb :error_500
   end
 end
-
-get '*/add_friend_test' do
-  erb :add_friend_test
-end
-
-post '/add_friend' do
-  begin
-    if User.first(username: params['add_friend']).username == params['add_friend']
-      Friends.create(
-          user1: session[:username],
-          user2: params['add_friend']
-      )
-      halt(200, "Successfully added friend! You're not forever alone atm! :D")
-    end
-  rescue
-    erb :error_500
-  end
-end
-
 
 get '*/signup' do
   erb :signup

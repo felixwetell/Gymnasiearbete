@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+  <meta charset="UTF-8">
+  <title>Sched - Friends</title>
+  <script type="text/javascript" src="<%= url('main.js') %>"></script>
+  <script>var friends = <%= @friends %>;</script>
+  <link rel="stylesheet" type="text/css" href="<%= url('friends.css') %>"/>
+</head>
+
+<body onload="showFriends(friends);">
+<div id="main_div">
+  <div id="header">
+    <a href="/login"><h3 class="header_text">Home</h3></a>
+    <a href="/about"><h3 class="header_text">About Us</h3></a>
+    <a href="/login"><h3 class="header_text" style="float: right;">Logout</h3></a>
+  </div>
+  <div id="content">
+
+      <div id="middle_div">
+
+        <div class="friends_div" id="friends_div">
+            <h2>Friends</h2>
+            <p>
+              The usernames below are usernames of the people you currently follow.
+              To follow more friends, use the field to the right.
+            </p>
+        </div>
+
+        <div class="friends_div" style="margin-left: 470px;">
+          <h2>Follow a friend</h2>
+        <form name="add_friend" method="POST" action="/add_friend">
+          <input id="add_friend" placeholder="friend" name="add_friend" style="margin-top: 10px;"/>
+          <input type="submit" style="margin-top: 10px;"/>
+        </form>
+          <h3>What happends if I follow someone?</h3>
+          <p>
+            If you follow someone you will be able to see what events they are attending to.
+            They will not be able to see that you have followed them, nor do they have to accept a request.
+          </p>
+      </div>
+  </div>
+</div>
+</div>
+  <footer id="footer">
+    <p>Developed by: <a href="https://se.linkedin.com/in/sandro-caputo-093a92110">Sandro Caputo</a> and
+      <a href="https://se.linkedin.com/in/felix-wetell-15a19b94">Felix Wetell</a></p>
+    <p>@ 2016 Sched</p>
+  </footer>
+</body>
+
+</html>
