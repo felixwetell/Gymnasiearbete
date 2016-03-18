@@ -32,7 +32,7 @@ a:hover {
 }
 
 
-#navigator {
+#header {
     width: 100%;
     height: 50px;
     margin: 0 0 50px;
@@ -42,21 +42,21 @@ a:hover {
     overflow-x: hidden;
 }
 
-#navigator a {
+#header a {
     opacity: 1 !important;
 }
 
-#navigator a :hover {
+#header a :hover {
     color: #00ffee;
 }
 
-.navigator img {
+.header img {
     height: 50px;
     width: 50px;
     float: left;
 }
 
-.navigator-text {
+.header_text {
     margin: 15px;
     float: left;
 
