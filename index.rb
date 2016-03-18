@@ -143,11 +143,21 @@ end
 post '/add_friend' do
   begin
     if User.first(username: params['add_friend']).username == params['add_friend']
-      Friends.create(
+      @name = session[:username]
+      @friends = []
+      friends_query = Friends.all(user1: @name)
+      friends_query.each do |friend|
+        @friends << friend.user2
+      end
+      if @friends.include?(params['add_friend'])
+        halt(400, "You are already following #{params['add_friend']}. You can't 'SuperStalk' someone")
+      else
+        Friends.create(
           user1: session[:username],
           user2: params['add_friend']
       )
       halt(200, "Successfully added friend! You're not forever alone atm! :D")
+      end
     end
   rescue
     erb :error_500
