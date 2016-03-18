@@ -33,8 +33,8 @@ class Events
   include DataMapper::Resource
 
   property :id                , Serial
-  property :event_type        , String
-  property :event_location    , String
+  property :event_type        , Text
+  property :event_location    , Text
   property :event_date        , String
   property :event_time_from   , String
   property :event_time_to     , String
