@@ -8,12 +8,8 @@ require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'sinatra/reloader'
 
-#http://www.learnenough.com/
-
-
-#https://git.heroku.com/stark-earth-2441.git
 set :port, 4568
-#
+
 DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 # DataMapper.setup(:default, 'postgres://uuzfqirtsdlqch:Qngf4-VL2xom7pTmiBwaZH6L6f@ec2-54-217-240-205.eu-west-1.compute.amazonaws.com/d48tmpto2mh5fi')
 set :static, true
@@ -88,7 +84,7 @@ not_found do
   erb :error_404
 end
 
-get '*/private' do
+get '*/main_page' do
   unless authorized?
     halt(401, 'Unauthorized')
   end
@@ -102,7 +98,7 @@ get '*/private' do
       events << Events.all(user: friend.user2)
     end
 
-    events = events.flatten! # this shit is magic bitch!
+    events = events.flatten!
     #Putting all usernames from the events into @usernames_from_events for page display
 
     @usernames_from_events = []
@@ -149,7 +145,7 @@ post '/create_event' do
       event_time_change: params['event_time_change'],
       user: session[:username]
   )
-  redirect to('/private')
+  redirect to('/main_page')
   rescue
     erb :error_500
   end
@@ -178,7 +174,7 @@ post '/login' do
     else
       halt(401, 'Invalid login')
     end
-    redirect to('/private')
+    redirect to('/main_page')
   rescue
     erb :error_500
   end
