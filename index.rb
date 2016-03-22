@@ -123,6 +123,22 @@ get '*/main_page' do
   erb :main_page
 end
 
+get '*/TOS' do
+  begin
+    erb :tos
+  rescue
+    erb :error_500
+  end
+end
+
+get '*/tos' do
+  begin
+    erb :tos
+  rescue
+    erb :error_500
+  end
+end
+
 get '*/friends' do
   unless authorized?
     halt(401, 'Unauthorized')
