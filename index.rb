@@ -24,7 +24,6 @@ class User
   property :username      , String
   property :password      , String, :length => 60
   property :salt          , String, :length => 29
-
   property :created_at    , DateTime
   property :updated_at    , DateTime
 end
