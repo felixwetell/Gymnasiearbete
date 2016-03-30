@@ -51,8 +51,8 @@ class Friends
 end
 
 configure :development do
-   # DataMapper.auto_upgrade!
-   DataMapper.auto_migrate!
+   DataMapper.auto_upgrade!
+   # DataMapper.auto_migrate!
 end
 
 DataMapper.finalize
@@ -119,7 +119,7 @@ end
 
 get '*/TOS' do
   begin
-    erb :tos
+    erb :TOS
   rescue
     erb :error_500
   end
@@ -127,7 +127,7 @@ end
 
 get '*/tos' do
   begin
-    erb :tos
+    erb :TOS
   rescue
     erb :error_500
   end
