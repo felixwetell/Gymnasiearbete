@@ -59,12 +59,6 @@ DataMapper.finalize
 
 enable :sessions
 
-#Checking if authorized use:
-# unless authorized?
-#   halt(401, 'Unauthorized')
-# end
-#For private pages
-
 helpers do
   def authorized?
     if session[:username] != nil
@@ -121,6 +115,22 @@ get '*/main_page' do
     erb :error_500
   end
   erb :main_page
+end
+
+get '*/TOS' do
+  begin
+    erb :TOS
+  rescue
+    erb :error_500
+  end
+end
+
+get '*/tos' do
+  begin
+    erb :TOS
+  rescue
+    erb :error_500
+  end
 end
 
 get '*/friends' do
@@ -193,15 +203,12 @@ post '/create_event' do
 end
 
 get '*/login' do
-  # Look up persistent cookies for "Allow cookies thing".
-  #session.clear?
-  session[:username] = nil
+  session.clear
   erb :login
 end
 
 get '*/logout' do
-  #session.clear?
-  session[:username] = nil
+  session.clear
   halt(200, 'Successfully logged out!')
 end
 
@@ -240,10 +247,6 @@ post '/signup' do
   rescue
     erb :error_500
   end
-end
-
-get '*/signup' do
-  erb :signup
 end
 
 get '*/about' do
