@@ -59,12 +59,6 @@ DataMapper.finalize
 
 enable :sessions
 
-#Checking if authorized use:
-# unless authorized?
-#   halt(401, 'Unauthorized')
-# end
-#For private pages
-
 helpers do
   def authorized?
     if session[:username] != nil
@@ -209,15 +203,12 @@ post '/create_event' do
 end
 
 get '*/login' do
-  # Look up persistent cookies for "Allow cookies thing".
-  #session.clear?
-  session[:username] = nil
+  session.clear
   erb :login
 end
 
 get '*/logout' do
-  #session.clear?
-  session[:username] = nil
+  session.clear
   halt(200, 'Successfully logged out!')
 end
 
