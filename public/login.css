@@ -122,3 +122,8 @@ a:hover {
     color: #00ffee;
     text-decoration: underline;
 }
+
+#signup_tos_prompt {
+    font-size: 0.6em;
+    position: absolute;
+}
