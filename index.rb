@@ -258,10 +258,6 @@ post '/signup' do
   end
 end
 
-get '*/signup' do
-  erb :signup
-end
-
 get '*/about' do
   erb :about
 end
