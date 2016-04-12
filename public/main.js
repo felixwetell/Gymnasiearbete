@@ -1,28 +1,30 @@
+//Copyright for all scripts used on this site belongs to @Sched and it's creators
+
 // The script below is used to show what weekday it is as a "Swedish String".
 
 function dateR(wday) {
     var day = "";
     switch (wday) {
         case 1:
-            day = "Måndag";
+            day = "Monday";
             break;
         case 2:
-            day = "Tisdag";
+            day = "Tuesday";
             break;
         case 3:
-            day = "Onsdag";
+            day = "Wednesday";
             break;
         case 4:
-            day = "Torsdag";
+            day = "Thursday";
             break;
         case 5:
-            day = "Fredag";
+            day = "Friday";
             break;
         case 6:
-            day = "Lördag";
+            day = "Saturday";
             break;
         case 0:
-            day = "Söndag";
+            day = "Sunday";
             break;
     }
     return day
@@ -64,7 +66,6 @@ function filter(date) {
             table_row.appendChild(td_time_from);
             table_row.appendChild(td_time_to);
             table_row.appendChild(td_time_change);
-            //table_row.appendChild(td_date);
             document.getElementById('event_info_table').appendChild(table_row); // Adding the tr to the table
         }
     }

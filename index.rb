@@ -58,6 +58,12 @@ DataMapper.finalize
 
 enable :sessions
 
+# Function that is used to check if a user is authenticated.
+# Add code below to get method when getting protected pages:
+# unless authorized?
+#   halt(401, 'Unauthorized')
+# end
+
 helpers do
   def authorized?
     if session[:username] != nil
@@ -91,7 +97,8 @@ get '*/main_page' do
     end
 
     events = events.flatten!
-    #Putting all usernames from the events into @usernames_from_events for page display
+    # Putting all usernames from the events into
+    # @usernames_from_events for page display
 
     @usernames_from_events = []
     @event_types_from_events = []
@@ -132,6 +139,10 @@ get '*/tos' do
   end
 end
 
+# Taking all the users friends from the database
+# and putting them in a array (@friends) that can
+# be displayed on the page.
+
 get '*/friends' do
   unless authorized?
     halt(401, 'Unauthorized')
@@ -148,6 +159,9 @@ get '*/friends' do
   end
   erb :friends
 end
+
+# When adding a friend, the users username
+# and the friend username will be sent to the database.
 
 post '/add_friend' do
   begin
@@ -173,6 +187,8 @@ post '/add_friend' do
   end
 end
 
+# Sending the information gathered when user creates
+# an event to the database.
 
 post '/create_event' do
   begin
@@ -211,6 +227,11 @@ get '*/logout' do
   halt(200, 'Successfully logged out!')
 end
 
+# Checkign if the encrypted password is valid.
+# Generating a new password hash using the input password
+# and the old password salt and comparing the new hash with the old one
+# if new hash == old hash: Authenticated!
+
 post '/login' do
   begin
     if User.first(username: params['username']) != nil
@@ -226,6 +247,9 @@ post '/login' do
     erb :error_500
   end
 end
+
+# Using Bcrypt to encrypt the passwords
+# and send them to the database.
 
 post '/signup' do
   begin
